@@ -1,0 +1,38 @@
+html,
+body,
+#root {
+	height: 100%;
+	width: 100%;
+	background: #000000;
+}
+
+p {
+	font-family: Inter, serif;
+	color: #cdadf5;
+	font-weight: 400;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+div {
+	scrollbar-color: #f38235 #000000;
+}
+
+div::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background-color: #000000;
+}
+
+div::-webkit-scrollbar {
+	width: 1px;
+	background-color: #000000;
+}
+
+div::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: #f39235;
+}
