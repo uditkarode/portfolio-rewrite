@@ -15,20 +15,20 @@ const containerStyle = css`
 `;
 
 const shapesStyle = css`
-	width: 76px;
+	width: 78px;
 	height: auto;
 `;
 
 const helperTextStyle = css`
 	color: #fbfbfb;
-	font-size: 50px;
+	font-size: 48px;
 	line-height: 1.125;
 	font-family: Manrope;
 `;
 
 const nameTextStyle = css`
 	color: #f38235;
-	font-size: 52px;
+	font-size: 50px;
 	font-weight: 600;
 	margin-top: -4px;
 	font-family: Manrope;
@@ -52,7 +52,12 @@ export default function Home() {
 
 	return (
 		<div className={containerStyle}>
-			<div>
+			<div
+				className={css`
+					display: flex;
+					flex-direction: column;
+				`}
+			>
 				{/* Colored Line */}
 				<motion.div
 					layoutId="line"
@@ -63,8 +68,8 @@ export default function Home() {
 				/>
 
 				{/* Home Content */}
-				<div style={{ marginLeft: 4 }}>
-					<Spacer vertical={32} />
+				<div style={{ marginLeft: 4, marginRight: 40 }}>
+					<Spacer vertical={28} />
 
 					<motion.div {...fade(timings["shapes"])}>
 						<Shapes className={shapesStyle} />
