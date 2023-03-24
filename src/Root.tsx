@@ -7,7 +7,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HeadInjector from "./components/generic/HeadInjector";
 
-const HomePage = React.lazy(() => import("./pages/Home"));
+const Home = React.lazy(() => import("./pages/Home"));
+const About = React.lazy(() => import("./pages/About"));
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
@@ -15,7 +16,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 			<Suspense fallback={<p>Loading...</p>}>
 				<Routes>
 					<Route element={<HeadInjector />}>
-						<Route path="/" element={<HomePage />} />
+						<Route path="/" element={<Home />} />
+						<Route path="/about" element={<About />} />
 						<Route path="*" element={<Navigate to="/" />} />
 					</Route>
 				</Routes>
