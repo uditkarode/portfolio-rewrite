@@ -1,8 +1,9 @@
 import { css } from "@linaria/core";
-import { motion } from "framer-motion";
+import { Transition, motion } from "framer-motion";
 import Spacer from "@/components/generic/Spacer";
-import { useTheme } from "@/stores/theme-store";
-import { fade, id } from "@/utils/utils";
+import useIsFirstRender from "@/hooks/use-is-first-render";
+import { useTheme } from "@/hooks/use-theme";
+import { fade } from "@/utils/utils";
 import { ReactComponent as NextButton } from "assets/next-button.svg";
 import { ReactComponent as Shapes } from "assets/shapes.svg";
 
@@ -37,18 +38,19 @@ const nameTextStyle = css`
 const nextButtonStyle = css`
 	width: 50px;
 	height: auto;
+	cursor: pointer;
 `;
 
 export default function Home() {
 	const theme = useTheme();
-	const isFirstLoad = true;
+	const isFirstRender = useIsFirstRender();
 
-	const timings = id({
-		line: { duration: isFirstLoad ? 0.3 : 0, delay: 0.32, type: "spring" },
-		shapes: { duration: 1, delay: isFirstLoad ? 1.2 : 0, type: "spring" },
-		text: { duration: 1, delay: isFirstLoad ? 1.22 : 0, type: "spring" },
-		button: { delay: isFirstLoad ? 2.12 : 0, type: "spring" },
-	} as const);
+	const timings: Record<string, Transition> = {
+		line: { duration: isFirstRender ? 0.3 : 0, delay: 0.32, type: "spring" },
+		shapes: { duration: 1, delay: isFirstRender ? 1.2 : 0, type: "spring" },
+		text: { duration: 1, delay: isFirstRender ? 1.22 : 0, type: "spring" },
+		button: { delay: isFirstRender ? 2.06 : 0, type: "spring" },
+	};
 
 	return (
 		<div className={containerStyle}>

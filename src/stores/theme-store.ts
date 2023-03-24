@@ -15,8 +15,3 @@ export const useThemeStore = create<ThemeStore>(set => ({
 	theme: { accent: "#f38235" },
 	setTheme: (newt: Theme) => set(oldt => ({ ...oldt, ...newt })),
 }));
-
-export const useTheme = () => {
-	const { theme } = useThemeStore();
-	return theme;
-};
