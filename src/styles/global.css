@@ -6,9 +6,16 @@ body,
 	background: #000000;
 }
 
+#root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 p {
 	font-family: Inter, serif;
-	color: #cdadf5;
+	color: #ffffff;
 	font-weight: 400;
 }
 
