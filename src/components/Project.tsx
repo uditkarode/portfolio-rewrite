@@ -14,7 +14,7 @@ export default function Project(props: {
 		<Link to={props.link}>
 			<div className={styles.container}>
 				<div className={styles.content}>
-					{/* Project name */}
+					{/* Repository name */}
 					<div className="flex align-items-center">
 						<BookIcon className={styles.bookIcon} />
 						<Spacer horizontal={15} />
@@ -23,6 +23,7 @@ export default function Project(props: {
 
 					<Spacer vertical={12} />
 
+					{/* Repository description */}
 					<p className={styles.description}>{props.description}</p>
 
 					<Spacer grow />

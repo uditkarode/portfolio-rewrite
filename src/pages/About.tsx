@@ -68,11 +68,11 @@ export default function About() {
 
 			<Spacer vertical={12} />
 
-			<motion.div layoutId={LayoutIds.Button} layout="position">
+			<motion.figure layoutId={LayoutIds.Button} layout="position">
 				<Link to="/projects">
 					<NextButton className={styles.nextButton} />
 				</Link>
-			</motion.div>
+			</motion.figure>
 		</div>
 	);
 }

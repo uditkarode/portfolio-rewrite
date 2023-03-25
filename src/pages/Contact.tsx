@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Project from "@/components/Project";
 import Spacer from "@/components/generic/Spacer";
-import { LayoutIds } from "@/utils/constants";
+import { LayoutIds, contact } from "@/utils/constants";
 import { fade } from "@/utils/utils";
 import { ReactComponent as NextButton } from "assets/next-button.svg";
 
-export default function Projects() {
+export default function Contact() {
 	return (
 		<div className={styles.container}>
-			<Header text={["my", "projects"]} />
+			<Header text={["contact", "me"]} />
 
 			<motion.div
 				{...fade({ duration: 2, type: "spring" })}
@@ -25,20 +25,27 @@ export default function Projects() {
 						overflow: auto;
 					`}
 				>
-					<Project
-						name="previewer"
-						description="a blazing fast preview image generator for Batbin"
-						language="Rust"
-						languageColor="rgb(222, 165, 132)"
-						link="Rust"
-					/>
+					<p className={styles.text}>
+						The fastest way to reach me is through{" "}
+						<Link className={styles.link} to={contact.telegram}>
+							Telegram
+						</Link>
+						.
+						<br />
+						<br />
+						An{" "}
+						<Link className={styles.link} to={`mailto:${contact.email}`}>
+							email
+						</Link>{" "}
+						works as well.
+					</p>
 				</div>
 			</motion.div>
 
 			<Spacer vertical={12} />
 
 			<motion.figure layoutId={LayoutIds.Button} layout="position">
-				<Link to="/contact">
+				<Link to="/">
 					<NextButton className={styles.nextButton} />
 				</Link>
 			</motion.figure>
@@ -64,6 +71,11 @@ const styles = {
 		width: 50px;
 		height: auto;
 		cursor: pointer;
+		rotate: 180deg;
+	`,
+	text: css`
+		font-size: 22px;
+		line-height: 1.5;
 	`,
 	gradient: css`
 		position: sticky;
@@ -71,5 +83,10 @@ const styles = {
 		height: 32px;
 		width: 100%;
 		background: linear-gradient(transparent, rgba(0, 0, 0, 1));
+	`,
+	link: css`
+		color: rgb(234, 154, 100);
+		text-decoration: underline;
+		font-weight: 500;
 	`,
 };

@@ -16,6 +16,7 @@ import {
 import { AnimationContextProvider } from "./contexts/animation-context";
 import useTheme from "./hooks/use-theme";
 import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 						<Route path="/" element={<Home />} />
 						<Route path="/about" element={<About />} />
 						<Route path="/projects" element={<Projects />} />
+						<Route path="/contact" element={<Contact />} />
 						<Route path="*" element={<Navigate to="/" />} />
 					</Route>
 				</Routes>
