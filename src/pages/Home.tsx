@@ -81,6 +81,7 @@ export default function Home() {
 				{/* Next Button */}
 				<motion.div
 					layoutId={LayoutIds.Button}
+					layout="position"
 					{...fade(timings["button"], disableAnimations)}
 				>
 					<Link to="/about">

@@ -6,9 +6,14 @@ export default function ColoredLine(props: MotionProps) {
 	const theme = useTheme();
 
 	return (
-		<motion.figure layoutId={LayoutIds.Line}>
+		<motion.figure style={{ width: "100%" }} layoutId={LayoutIds.Line}>
 			<motion.div
-				style={{ backgroundColor: theme.accent, height: 2, opacity: 0.4 }}
+				style={{
+					backgroundColor: theme.accent,
+					width: "100%",
+					height: 2,
+					opacity: 0.4,
+				}}
 				{...props}
 			/>
 		</motion.figure>
