@@ -2,6 +2,7 @@ import "./styles/fonts.css";
 import "./styles/global.css";
 import "./styles/reset.css";
 import "./styles/utils.css";
+import { css } from "@linaria/core";
 import React, { Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
@@ -12,18 +13,9 @@ import {
 	Routes,
 } from "react-router-dom";
 import { AnimationContextProvider } from "./contexts/animation-context";
+import useTheme from "./hooks/use-theme";
 import About from "./pages/About";
 import Home from "./pages/Home";
-
-function Root() {
-	const state = useState(false);
-
-	return (
-		<AnimationContextProvider value={state}>
-			<Outlet />
-		</AnimationContextProvider>
-	);
-}
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
@@ -40,3 +32,21 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 		</BrowserRouter>
 	</React.StrictMode>,
 );
+
+function Root() {
+	const theme = useTheme();
+	const animationState = useState(false);
+
+	return (
+		<AnimationContextProvider value={animationState}>
+			<div
+				className="fill flex-col flex-center-children"
+				style={{
+					backgroundColor: theme.background,
+				}}
+			>
+				<Outlet />
+			</div>
+		</AnimationContextProvider>
+	);
+}

@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import ColoredLine from "@/components/ColoredLine";
 import Spacer from "@/components/generic/Spacer";
 import { animationContext } from "@/contexts/animation-context";
-import useLocalStorage from "@/hooks/use-local-storage";
 import { LayoutIds } from "@/utils/constants";
 import { fade, objectIf } from "@/utils/utils";
 import { ReactComponent as NextButton } from "assets/next-button.svg";
@@ -16,25 +15,10 @@ export default function Home() {
 		useContext(animationContext);
 
 	const timings = {
-		line: {
-			duration: 0.3,
-			delay: 0.32,
-			type: "spring",
-		},
-		shapes: {
-			duration: 1,
-			delay: 1.2,
-			type: "spring",
-		},
-		text: {
-			duration: 1,
-			delay: 1.22,
-			type: "spring",
-		},
-		button: {
-			delay: 2.06,
-			type: "spring",
-		},
+		line: { duration: 0.3, delay: 0.32, type: "spring" },
+		shapes: { duration: 1, delay: 1.2, type: "spring" },
+		text: { duration: 1, delay: 1.22, type: "spring" },
+		button: { delay: 2.06, type: "spring" },
 	} as const satisfies Record<string, Transition>;
 
 	return (

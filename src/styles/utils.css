@@ -1,16 +1,18 @@
 .flex {
-  display: flex;
+	display: flex;
 }
 
 .flex-col {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
-.align-center {
-  align-items: center;
+.flex-center-children {
+	align-items: center;
+	justify-content: center;
 }
 
-.full-width {
-  width: 100%;
+.fill {
+	height: 100%;
+	width: 100%;
 }

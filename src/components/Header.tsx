@@ -10,10 +10,14 @@ export default function Header() {
 
 	return (
 		<div className={styles.container}>
+			{/* Shapes */}
 			<motion.div layoutId={LayoutIds.Shapes} layout="preserve-aspect">
 				<Shapes className={styles.shapes} />
 			</motion.div>
+
 			<Spacer horizontal={14} />
+
+			{/* Title 1 */}
 			<motion.p
 				layoutId={LayoutIds.Title1}
 				className={styles.about}
@@ -21,7 +25,10 @@ export default function Header() {
 			>
 				about
 			</motion.p>
+
 			<Spacer horizontal={8} />
+
+			{/* Title 2 */}
 			<motion.p
 				layoutId={LayoutIds.Title2}
 				className={styles.me}
