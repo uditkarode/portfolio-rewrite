@@ -7,7 +7,7 @@ const defaultTheme: Theme = {
 
 // context needlessly updates all it's children
 // zustand store will update only the components
-// that actually use the value of this store
+// that actually use colors from the theme
 export const useThemeStore = create<ThemeStore>(set => ({
 	theme: defaultTheme,
 	setTheme: (newt: Theme) => set(oldt => ({ ...oldt, ...newt })),
