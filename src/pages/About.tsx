@@ -2,7 +2,6 @@ import { css } from "@linaria/core";
 import { motion } from "framer-motion";
 import { PropsWithChildren, useCallback } from "react";
 import { Link } from "react-router-dom";
-import ColoredLine from "@/components/ColoredLine";
 import Header from "@/components/Header";
 import Spacer from "@/components/generic/Spacer";
 import useTheme from "@/hooks/use-theme";
@@ -29,15 +28,14 @@ export default function About() {
 
 	return (
 		<div className={styles.container}>
-			<Header />
-			<Spacer vertical={12} />
-			<ColoredLine />
+			<Header text={["about", "me"]} />
 
 			<motion.div
 				{...fade({ duration: 2, type: "spring" })}
 				className={styles.textHolder}
 			>
-				<p style={{ marginTop: 24 }}>
+				<Spacer vertical={24} />
+				<p>
 					I'm a {yearsFromBirthday()} year old developer. I like making useful
 					things!
 					<br /> It all started when I was 16, and the first language I used was
@@ -52,9 +50,9 @@ export default function About() {
 					<br /> Some things I currently do are:
 					<br /> • <Act>Mobile App Development</Act> - mainly using{" "}
 					<Act>React Native</Act>, and sometimes <Act>Native</Act> or{" "}
-					<Act>Flutter</Act>
+					<Act>Flutter</Act>.
 					<br /> • <Act>Web Development</Act> - back-end using{" "}
-					<Act>TypeScript</Act>, <Act>Rust</Act>, <Act>Haskell</Act>, and
+					<Act>TypeScript</Act> / <Act>Rust</Act> / <Act>Haskell</Act>, and
 					front-end using <Act>React</Act>.<br />
 					<br /> I‘m also a Linux enthusiast and have spent a considerable
 					amount of time messing with kernels.
@@ -90,6 +88,7 @@ const styles = {
 	textHolder: css`
 		flex-grow: 1;
 		font-size: 22px;
+		width: 100%;
 		font-family: Inter;
 		line-height: 1.5;
 		color: #e9e9e9;

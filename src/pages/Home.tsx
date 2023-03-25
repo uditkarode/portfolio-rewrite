@@ -43,7 +43,7 @@ export default function Home() {
 			<div style={{ marginLeft: 4, marginRight: 40 }}>
 				{/* Shapes */}
 				<motion.div
-					layout="preserve-aspect"
+					layout="position"
 					layoutId="shapes"
 					{...fade(timings["shapes"], disableAnimations)}
 				>
@@ -55,7 +55,7 @@ export default function Home() {
 					{...fade(timings["text"], disableAnimations)}
 					className={styles.helperText}
 					layoutId={LayoutIds.Title1}
-					layout="preserve-aspect"
+					layout="position"
 				>
 					Hi! I&lsquo;m
 					<br />
@@ -68,7 +68,7 @@ export default function Home() {
 					{...fade(timings["text"], disableAnimations)}
 					className={styles.nameText}
 					layoutId={LayoutIds.Title2}
-					layout="preserve-aspect"
+					layout="position"
 					onAnimationComplete={a => {
 						setDisableAnimations(true);
 					}}

@@ -6,9 +6,12 @@ body,
 }
 
 p {
-	font-family: Inter, serif;
 	color: #ffffff;
 	font-weight: 400;
+}
+
+a {
+	text-decoration: none;
 }
 
 * {
