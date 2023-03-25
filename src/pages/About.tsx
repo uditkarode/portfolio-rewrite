@@ -37,7 +37,7 @@ export default function About() {
 				{...fade({ duration: 2, type: "spring" })}
 				className={styles.textHolder}
 			>
-				<p>
+				<p style={{ marginTop: 24 }}>
 					I'm a {yearsFromBirthday()} year old developer. I like making useful
 					things!
 					<br /> It all started when I was 16, and the first language I used was
@@ -64,6 +64,8 @@ export default function About() {
 					<br />
 					<br /> And oh, I like cats!
 				</p>
+
+				<div className={styles.gradient} />
 			</motion.div>
 
 			<Spacer vertical={12} />
@@ -89,14 +91,21 @@ const styles = {
 		flex-grow: 1;
 		font-size: 22px;
 		font-family: Inter;
-		margin-top: 24px;
 		line-height: 1.5;
 		color: #e9e9e9;
 		overflow: auto;
+		position: relative;
 	`,
 	nextButton: css`
 		width: 50px;
 		height: auto;
 		cursor: pointer;
+	`,
+	gradient: css`
+		position: sticky;
+		bottom: 0;
+		height: 32px;
+		width: 100%;
+		background: linear-gradient(transparent, rgba(0, 0, 0, 1));
 	`,
 };
