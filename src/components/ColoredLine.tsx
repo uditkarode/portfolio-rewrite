@@ -1,5 +1,5 @@
 import { MotionProps, motion } from "framer-motion";
-import { useTheme } from "@/hooks/use-theme";
+import useTheme from "@/hooks/use-theme";
 import { LayoutIds } from "@/utils/constants";
 
 export default function ColoredLine(props: MotionProps) {

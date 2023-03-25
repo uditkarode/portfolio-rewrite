@@ -1,6 +1,6 @@
 import { css } from "@linaria/core";
 import { motion } from "framer-motion";
-import { useTheme } from "@/hooks/use-theme";
+import useTheme from "@/hooks/use-theme";
 import { LayoutIds } from "@/utils/constants";
 import Spacer from "./generic/Spacer";
 import { ReactComponent as Shapes } from "assets/shapes.svg";
@@ -10,19 +10,14 @@ export default function Header() {
 
 	return (
 		<div className={styles.container}>
-			<motion.div
-				layoutId={LayoutIds.Shapes}
-				transition={{ type: "spring" }}
-				layout="position"
-			>
+			<motion.div layoutId={LayoutIds.Shapes} layout="preserve-aspect">
 				<Shapes className={styles.shapes} />
 			</motion.div>
 			<Spacer horizontal={14} />
 			<motion.p
 				layoutId={LayoutIds.Title1}
 				className={styles.about}
-				layout="position"
-				transition={{ type: "spring" }}
+				layout="preserve-aspect"
 			>
 				about
 			</motion.p>
@@ -31,8 +26,7 @@ export default function Header() {
 				layoutId={LayoutIds.Title2}
 				className={styles.me}
 				style={{ color: theme.accent }}
-				layout="position"
-				transition={{ type: "spring" }}
+				layout="preserve-aspect"
 			>
 				me
 			</motion.p>
