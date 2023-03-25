@@ -42,7 +42,10 @@ export default function Scaffold(props: PropsWithChildren<Props>) {
 				layout="position"
 			>
 				<Link to={props.buttonLink}>
-					<NextButton className={styles.nextButton} />
+					<NextButton
+						style={{ height: "100%", width: "100%" }}
+						className={styles.nextButton}
+					/>
 				</Link>
 			</motion.figure>
 		</div>
@@ -63,7 +66,6 @@ const styles = {
 		position: relative;
 	`,
 	nextButton: css`
-		height: auto;
 		cursor: pointer;
 	`,
 	gradient: css`

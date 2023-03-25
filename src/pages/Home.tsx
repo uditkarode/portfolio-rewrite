@@ -50,6 +50,8 @@ export default function Home() {
 					<Shapes className={styles.shapes} />
 				</motion.div>
 
+				<Spacer vertical={6} />
+
 				{/* Helper Text */}
 				<motion.p
 					{...fade(timings["text"], disableAnimations)}
