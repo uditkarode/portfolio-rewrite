@@ -11,6 +11,7 @@ import {
 	Outlet,
 	Route,
 	Routes,
+	useLocation,
 } from "react-router-dom";
 import { AnimationContextProvider } from "./contexts/animation-context";
 import useTheme from "./hooks/use-theme";
@@ -35,7 +36,8 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 
 function Root() {
 	const theme = useTheme();
-	const animationState = useState(false);
+	const location = useLocation();
+	const animationState = useState(location.pathname == "/about");
 
 	return (
 		<AnimationContextProvider value={animationState}>
