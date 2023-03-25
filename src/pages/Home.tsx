@@ -1,6 +1,6 @@
 import { css } from "@linaria/core";
 import { Transition, motion } from "framer-motion";
-import { useContext, useLayoutEffect } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import ColoredLine from "@/components/ColoredLine";
 import Spacer from "@/components/generic/Spacer";
