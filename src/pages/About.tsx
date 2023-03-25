@@ -33,36 +33,40 @@ export default function About() {
 			<Spacer vertical={12} />
 			<ColoredLine />
 
-			<motion.p
+			<motion.div
 				{...fade({ duration: 2, type: "spring" })}
-				className={styles.text}
+				className={styles.textHolder}
 			>
-				I'm a {yearsFromBirthday()} year old developer. I like making useful
-				things!
-				<br /> It all started when I was 16, and the first language I used was
-				<Act>Java</Act>.
-				<br />
-				<br /> Over the years I‘ve picked up many new skills and worked with
-				many different languages and frameworks.
-				<br /> I love learning about new things, and my curiosity has led me to
-				playing around with esoteric languages like <Act>Haskell</Act> and
-				editors like Vim and Emacs.
-				<br />
-				<br /> Some things I currently do are:
-				<br /> • <Act>Mobile App Development</Act> - mainly using{" "}
-				<Act>React Native</Act>, and sometimes <Act>Native</Act> or{" "}
-				<Act>Flutter</Act>
-				<br /> • <Act>Web Development</Act> - back-end using{" "}
-				<Act>TypeScript</Act>, <Act>Rust</Act>, <Act>Haskell</Act>, and
-				front-end using <Act>React</Act>.<br />
-				<br /> I‘m also a Linux enthusiast and have spent a considerable amount
-				of time messing with kernels.
-				<br />
-				<br /> In my free time, I learn <Act>Japanese</Act> and play the
-				keyboard and the guitar, although I‘m incredibly rusty at it now.
-				<br />
-				<br /> And oh, I like cats!
-			</motion.p>
+				<p>
+					I'm a {yearsFromBirthday()} year old developer. I like making useful
+					things!
+					<br /> It all started when I was 16, and the first language I used was
+					<Act>Java</Act>.
+					<br />
+					<br /> Over the years I‘ve picked up many new skills and worked with
+					many different languages and frameworks.
+					<br /> I love learning about new things, and my curiosity has led me
+					to playing around with esoteric languages like <Act>Haskell</Act> and
+					editors like Vim and Emacs.
+					<br />
+					<br /> Some things I currently do are:
+					<br /> • <Act>Mobile App Development</Act> - mainly using{" "}
+					<Act>React Native</Act>, and sometimes <Act>Native</Act> or{" "}
+					<Act>Flutter</Act>
+					<br /> • <Act>Web Development</Act> - back-end using{" "}
+					<Act>TypeScript</Act>, <Act>Rust</Act>, <Act>Haskell</Act>, and
+					front-end using <Act>React</Act>.<br />
+					<br /> I‘m also a Linux enthusiast and have spent a considerable
+					amount of time messing with kernels.
+					<br />
+					<br /> In my free time, I learn <Act>Japanese</Act> and play the
+					keyboard and the guitar, although I‘m incredibly rusty at it now.
+					<br />
+					<br /> And oh, I like cats!
+				</p>
+			</motion.div>
+
+			<Spacer vertical={12} />
 
 			<motion.div layoutId={LayoutIds.Button} layout="position">
 				<Link to="/about">
@@ -81,13 +85,14 @@ const styles = {
 		flex-direction: column;
 		align-items: center;
 	`,
-	text: css`
+	textHolder: css`
 		flex-grow: 1;
 		font-size: 22px;
 		font-family: Inter;
 		margin-top: 24px;
 		line-height: 1.5;
 		color: #e9e9e9;
+		overflow: auto;
 	`,
 	nextButton: css`
 		width: 50px;
