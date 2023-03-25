@@ -66,7 +66,7 @@ export default function About() {
 				<div className={styles.gradient} />
 			</motion.div>
 
-			<Spacer vertical={12} />
+			<Spacer vertical={24} />
 
 			<motion.figure layoutId={LayoutIds.Button} layout="position">
 				<Link to="/projects">
@@ -86,7 +86,6 @@ const styles = {
 		align-items: center;
 	`,
 	textHolder: css`
-		flex-grow: 1;
 		font-size: 22px;
 		width: 100%;
 		font-family: Inter;

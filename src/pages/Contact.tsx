@@ -42,9 +42,13 @@ export default function Contact() {
 				</div>
 			</motion.div>
 
-			<Spacer vertical={12} />
+			<Spacer vertical={24} />
 
-			<motion.figure layoutId={LayoutIds.Button} layout="position">
+			<motion.figure
+				style={{ rotate: 180 }}
+				layoutId={LayoutIds.Button}
+				layout="position"
+			>
 				<Link to="/">
 					<NextButton className={styles.nextButton} />
 				</Link>
@@ -62,7 +66,6 @@ const styles = {
 		align-items: center;
 	`,
 	contentHolder: css`
-		flex-grow: 1;
 		width: 100%;
 		overflow: auto;
 		position: relative;
@@ -71,7 +74,6 @@ const styles = {
 		width: 50px;
 		height: auto;
 		cursor: pointer;
-		rotate: 180deg;
 	`,
 	text: css`
 		font-size: 22px;

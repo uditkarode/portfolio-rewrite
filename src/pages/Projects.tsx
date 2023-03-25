@@ -35,7 +35,7 @@ export default function Projects() {
 				</div>
 			</motion.div>
 
-			<Spacer vertical={12} />
+			<Spacer vertical={24} />
 
 			<motion.figure layoutId={LayoutIds.Button} layout="position">
 				<Link to="/contact">
@@ -55,7 +55,6 @@ const styles = {
 		align-items: center;
 	`,
 	contentHolder: css`
-		flex-grow: 1;
 		width: 100%;
 		overflow: auto;
 		position: relative;
