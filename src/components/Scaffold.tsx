@@ -59,6 +59,8 @@ const styles = {
 		min-height: min(10vw, 50px);
 	`,
 	contentHolder: css`
+		display: flex;
+		flex-direction: column;
 		height: min-content;
 		width: 100%;
 		overflow: auto;

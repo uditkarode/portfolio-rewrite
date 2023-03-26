@@ -22,12 +22,7 @@ export default function Home() {
 
 	return (
 		<div className="fill flex flex-center-children">
-			<div
-				className={css`
-					display: flex;
-					flex-direction: column;
-				`}
-			>
+			<div className="flex-col">
 				{/* Colored Line */}
 				<ColoredLine
 					{...objectIf(!disableAnimations, {
@@ -93,7 +88,7 @@ export default function Home() {
 
 const styles = {
 	shapes: css`
-		width: 84px;
+		width: min(18vw, 84px);
 		height: auto;
 	`,
 	helperText: css`

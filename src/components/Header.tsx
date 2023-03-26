@@ -8,16 +8,14 @@ import { ReactComponent as Shapes } from "assets/shapes.svg";
 
 export default function Header(props: { text: [string, string] }) {
 	const theme = useTheme();
+	const titleLayoutIds =
+		props.text[0].length > props.text[1].length
+			? [LayoutIds.Title1, LayoutIds.Title2]
+			: [LayoutIds.Title2, LayoutIds.Title1];
 
 	return (
 		<div className={styles.container}>
-			<div
-				className={css`
-					width: 100%;
-					display: flex;
-					align-items: center;
-				`}
-			>
+			<div className="flex full-width align-items-center">
 				{/* Shapes */}
 				<motion.div layoutId={LayoutIds.Shapes} layout="position">
 					<Shapes className={styles.shapes} />
@@ -27,7 +25,7 @@ export default function Header(props: { text: [string, string] }) {
 
 				{/* Title 1 */}
 				<motion.p
-					layoutId={LayoutIds.Title1}
+					layoutId={titleLayoutIds[0]}
 					className={styles.about}
 					layout="position"
 				>
@@ -38,7 +36,7 @@ export default function Header(props: { text: [string, string] }) {
 
 				{/* Title 2 */}
 				<motion.p
-					layoutId={LayoutIds.Title2}
+					layoutId={titleLayoutIds[1]}
 					className={styles.me}
 					style={{ color: theme.accent }}
 					layout="position"
