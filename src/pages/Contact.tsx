@@ -5,7 +5,12 @@ import { contact } from "@/utils/constants";
 
 export default function Contact() {
 	return (
-		<Scaffold headerText={["contact", "me"]} buttonLink="/">
+		<Scaffold
+			headerText={["contact", "me"]}
+			buttonLink="/"
+			rotatedButton
+			largeButton
+		>
 			<p className={styles.text}>
 				The fastest way to reach me is through{" "}
 				<Link target="_blank" className={styles.link} to={contact.telegram}>

@@ -84,8 +84,8 @@ export default function Home() {
 					{/* Next Button */}
 					<motion.div
 						layoutId={LayoutIds.Button}
-						layout="position"
 						{...fade(timings["button"], disableAnimations)}
+						className={styles.buttonHolder}
 					>
 						<Link to="/about">
 							<NextButton className={styles.nextButton} />
@@ -115,9 +115,13 @@ const styles = {
 		margin-top: -4px;
 		font-family: Manrope;
 	`,
-	nextButton: css`
+	buttonHolder: css`
 		width: min(11.2vw, 50px);
-		height: auto;
+		rotate: 0deg;
+	`,
+	nextButton: css`
+		height: 100%;
+		width: 100%;
 		cursor: pointer;
 	`,
 };
