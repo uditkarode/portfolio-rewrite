@@ -41,7 +41,10 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 function Root() {
 	const theme = useTheme();
 	const location = useLocation();
-	const animationState = useState(location.pathname == "/about");
+
+	// disable starting animation by default only if the
+	// initially opened page is not the root page
+	const animationState = useState(location.pathname != "/");
 
 	return (
 		<AnimationContextProvider value={animationState}>

@@ -72,7 +72,7 @@ export default function Home() {
 						className={styles.nameText}
 						layoutId={LayoutIds.Title2}
 						layout="position"
-						onAnimationComplete={a => {
+						onAnimationComplete={() => {
 							setDisableAnimations(true);
 						}}
 					>
@@ -104,19 +104,19 @@ const styles = {
 	`,
 	helperText: css`
 		color: #fbfbfb;
-		font-size: min(10vw, 54px);
+		font-size: min(10.4vw, 54px);
 		line-height: 1.125;
 		font-family: Manrope;
 	`,
 	nameText: css`
 		color: #f38235;
-		font-size: min(12vw, 58px);
+		font-size: min(11.2vw, 58px);
 		font-weight: 600;
 		margin-top: -4px;
 		font-family: Manrope;
 	`,
 	nextButton: css`
-		width: 50px;
+		width: min(11.2vw, 50px);
 		height: auto;
 		cursor: pointer;
 	`,
