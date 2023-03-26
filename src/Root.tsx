@@ -46,7 +46,7 @@ function Root() {
 	return (
 		<AnimationContextProvider value={animationState}>
 			<div
-				className="fill flex-col flex-center-children"
+				className="fill flex-col align-items-center"
 				style={{
 					backgroundColor: theme.background,
 				}}

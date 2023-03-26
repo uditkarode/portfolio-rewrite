@@ -19,6 +19,7 @@ interface Props {
 export default function Scaffold(props: PropsWithChildren<Props>) {
 	return (
 		<div className={styles.container}>
+			<div className={styles.topSpacing} />
 			<Header text={props.headerText} />
 
 			<motion.div
@@ -31,7 +32,7 @@ export default function Scaffold(props: PropsWithChildren<Props>) {
 				<div className={styles.gradient} />
 			</motion.div>
 
-			<Spacer vertical={24} />
+			<Spacer vertical={20} />
 
 			<motion.figure
 				style={{
@@ -48,19 +49,25 @@ export default function Scaffold(props: PropsWithChildren<Props>) {
 					/>
 				</Link>
 			</motion.figure>
+
+			<Spacer vertical={8} />
 		</div>
 	);
 }
 
 const styles = {
 	container: css`
-		height: 84%;
+		height: 99%;
 		width: 90%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	`,
+	topSpacing: css`
+		min-height: min(10vw, 50px);
+	`,
 	contentHolder: css`
+		height: min-content;
 		width: 100%;
 		overflow: auto;
 		position: relative;

@@ -26,7 +26,7 @@ export default function Contact() {
 
 const styles = {
 	text: css`
-		font-size: 22px;
+		font-size: min(5.5vw, 22px);
 		line-height: 1.5;
 		font-family: Inter;
 	`,

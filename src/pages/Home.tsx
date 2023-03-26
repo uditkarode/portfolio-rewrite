@@ -22,74 +22,76 @@ export default function Home() {
 	} as const satisfies Record<string, Transition>;
 
 	return (
-		<div
-			className={css`
-				display: flex;
-				flex-direction: column;
-			`}
-		>
-			{/* Colored Line */}
-			<ColoredLine
-				{...objectIf(!disableAnimations, {
-					initial: { width: "0%" },
-					animate: { width: "100%" },
-				})}
-				transition={timings["line"]}
-			/>
+		<div className="fill flex flex-center-children">
+			<div
+				className={css`
+					display: flex;
+					flex-direction: column;
+				`}
+			>
+				{/* Colored Line */}
+				<ColoredLine
+					{...objectIf(!disableAnimations, {
+						initial: { width: "0%" },
+						animate: { width: "100%" },
+					})}
+					transition={timings["line"]}
+				/>
 
-			<Spacer vertical={26} />
+				<Spacer vertical={26} />
 
-			{/* Home Content */}
-			<div style={{ marginLeft: 4, marginRight: 40 }}>
-				{/* Shapes */}
-				<motion.div
-					layout="position"
-					layoutId="shapes"
-					{...fade(timings["shapes"], disableAnimations)}
-				>
-					<Shapes className={styles.shapes} />
-				</motion.div>
+				{/* Home Content */}
+				<div style={{ marginLeft: 4, marginRight: 40 }}>
+					{/* Shapes */}
+					<motion.div
+						layout="position"
+						layoutId="shapes"
+						{...fade(timings["shapes"], disableAnimations)}
+					>
+						<Shapes className={styles.shapes} />
+					</motion.div>
 
-				<Spacer vertical={6} />
+					<Spacer vertical={6} />
 
-				{/* Helper Text */}
-				<motion.p
-					{...fade(timings["text"], disableAnimations)}
-					className={styles.helperText}
-					layoutId={LayoutIds.Title1}
-					layout="position"
-				>
-					Hi! I&lsquo;m
-					<br />
-				</motion.p>
+					{/* Helper Text */}
+					<motion.p
+						{...fade(timings["text"], disableAnimations)}
+						className={styles.helperText}
+						layoutId={LayoutIds.Title1}
+						layout="position"
+					>
+						Hi! I&lsquo;m
+						<br />
+					</motion.p>
 
-				<Spacer vertical={6} />
+					<Spacer vertical={6} />
 
-				{/* Name Text */}
-				<motion.p
-					{...fade(timings["text"], disableAnimations)}
-					className={styles.nameText}
-					layoutId={LayoutIds.Title2}
-					layout="position"
-					onAnimationComplete={a => {
-						setDisableAnimations(true);
-					}}
-				>
-					Udit Karode
-				</motion.p>
+					{/* Name Text */}
+					<motion.p
+						{...fade(timings["text"], disableAnimations)}
+						className={styles.nameText}
+						layoutId={LayoutIds.Title2}
+						layout="position"
+						onAnimationComplete={a => {
+							setDisableAnimations(true);
+						}}
+					>
+						Udit Karode
+					</motion.p>
 
-				<Spacer vertical={24} />
+					<Spacer vertical={24} />
 
-				{/* Next Button */}
-				<motion.div
-					layoutId={LayoutIds.Button}
-					layout="position"
-					{...fade(timings["button"], disableAnimations)}
-				>
-					<Link to="/about">
-						<NextButton className={styles.nextButton} />
-					</Link>
-				</motion.div>
+					{/* Next Button */}
+					<motion.div
+						layoutId={LayoutIds.Button}
+						layout="position"
+						{...fade(timings["button"], disableAnimations)}
+					>
+						<Link to="/about">
+							<NextButton className={styles.nextButton} />
+						</Link>
+					</motion.div>
+				</div>
 			</div>
 		</div>
 	);
