@@ -6,7 +6,7 @@ import Header from "@/components/Header";
 import Spacer from "@/components/generic/Spacer";
 import { LayoutIds } from "@/utils/constants";
 import { fade } from "@/utils/utils";
-import { ReactComponent as NextButton } from "assets/next-button.svg";
+import NextButton from "./NextButton";
 
 interface Props {
 	headerText: [string, string];
@@ -34,17 +34,13 @@ export default function Scaffold(props: PropsWithChildren<Props>) {
 
 			<Spacer vertical={20} />
 
-			<motion.figure
+			<NextButton
+				buttonLink={props.buttonLink}
 				style={{
 					rotate: props.rotatedButton ? 180 : 0,
 					width: props.largeButton ? 80 : 50,
 				}}
-				layoutId={LayoutIds.Button}
-			>
-				<Link to={props.buttonLink}>
-					<NextButton className={styles.nextButton} />
-				</Link>
-			</motion.figure>
+			/>
 
 			<Spacer vertical={8} />
 		</div>

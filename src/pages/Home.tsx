@@ -1,13 +1,12 @@
 import { css } from "@linaria/core";
 import { Transition, motion } from "framer-motion";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import ColoredLine from "@/components/ColoredLine";
+import NextButton from "@/components/NextButton";
 import Spacer from "@/components/generic/Spacer";
 import { animationContext } from "@/contexts/animation-context";
 import { LayoutIds } from "@/utils/constants";
 import { fade, objectIf } from "@/utils/utils";
-import { ReactComponent as NextButton } from "assets/next-button.svg";
 import { ReactComponent as Shapes } from "assets/shapes.svg";
 
 export default function Home() {
@@ -82,15 +81,10 @@ export default function Home() {
 					<Spacer vertical={24} />
 
 					{/* Next Button */}
-					<motion.div
-						layoutId={LayoutIds.Button}
-						{...fade(timings["button"], disableAnimations)}
-						className={styles.buttonHolder}
-					>
-						<Link to="/about">
-							<NextButton className={styles.nextButton} />
-						</Link>
-					</motion.div>
+					<NextButton
+						buttonLink="/about"
+						motion={fade(timings["button"], disableAnimations)}
+					/>
 				</div>
 			</div>
 		</div>
@@ -114,14 +108,5 @@ const styles = {
 		font-weight: 600;
 		margin-top: -4px;
 		font-family: Manrope;
-	`,
-	buttonHolder: css`
-		width: min(11.2vw, 50px);
-		rotate: 0deg;
-	`,
-	nextButton: css`
-		height: 100%;
-		width: 100%;
-		cursor: pointer;
 	`,
 };
