@@ -1,7 +1,9 @@
 import { css } from "@linaria/core";
 import { MotionProps, MotionStyle, motion as m } from "framer-motion";
 import { Link } from "react-router-dom";
+import useTheme from "@/hooks/use-theme";
 import { LayoutIds } from "@/utils/constants";
+import { lumenColor } from "@/utils/utils";
 import { ReactComponent as NextButtonAsset } from "assets/next-button.svg";
 
 export default function NextButton(props: {
@@ -9,6 +11,8 @@ export default function NextButton(props: {
 	style?: MotionStyle;
 	buttonLink: string;
 }) {
+	const theme = useTheme();
+
 	return (
 		<m.div
 			layoutId={LayoutIds.Button}
@@ -17,7 +21,13 @@ export default function NextButton(props: {
 			{...(props.motion ?? {})}
 		>
 			<Link to={props.buttonLink}>
-				<NextButtonAsset className={styles.nextButton} />
+				<NextButtonAsset
+					// @ts-ignore
+					fille={theme.accent}
+					// @ts-ignore
+					fillo={lumenColor(theme.accent, 60)}
+					className={styles.nextButton}
+				/>
 			</Link>
 		</m.div>
 	);

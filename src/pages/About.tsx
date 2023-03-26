@@ -2,7 +2,7 @@ import { css } from "@linaria/core";
 import { PropsWithChildren, useCallback } from "react";
 import Scaffold from "@/components/Scaffold";
 import useTheme from "@/hooks/use-theme";
-import { yearsFromBirthday } from "@/utils/utils";
+import { lumenColor, yearsFromBirthday } from "@/utils/utils";
 
 export default function About() {
 	const theme = useTheme();
@@ -11,8 +11,12 @@ export default function About() {
 	const Act = useCallback(
 		({ children }: PropsWithChildren<{}>) => {
 			return (
-				// TODO: lighten accent
-				<span style={{ color: theme.accent, fontWeight: "500" }}>
+				<span
+					style={{
+						color: lumenColor(theme.accent, 25),
+						fontWeight: "500",
+					}}
+				>
 					{" "}
 					{children}
 				</span>
@@ -29,7 +33,7 @@ export default function About() {
 				<br /> It all started when I was 16, and the first language I used was
 				<Act>Java</Act>.
 				<br />
-				<br /> Over the years I‘ve picked up many new skills and worked with
+				<br /> Over the years I've picked up many new skills and worked with
 				many different languages and frameworks.
 				<br /> I love learning about new things, and my curiosity has led me to
 				playing around with esoteric languages like <Act>Haskell</Act> and
@@ -42,11 +46,11 @@ export default function About() {
 				<br /> • <Act>Web Development</Act> - back-end using{" "}
 				<Act>TypeScript</Act> / <Act>Rust</Act> / <Act>Haskell</Act>, and
 				front-end using <Act>React</Act>.<br />
-				<br /> I‘m also a Linux enthusiast and have spent a considerable amount
+				<br /> I'm also a Linux enthusiast and have spent a considerable amount
 				of time messing with kernels.
 				<br />
 				<br /> In my free time, I learn <Act>Japanese</Act> and play the
-				keyboard and the guitar, although I‘m incredibly rusty at it now.
+				keyboard and the guitar, although I'm incredibly rusty at it now.
 				<br />
 				<br /> And oh, I like cats!
 			</p>

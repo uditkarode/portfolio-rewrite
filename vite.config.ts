@@ -8,7 +8,14 @@ export default defineConfig({
 	plugins: [
 		tsconfigPaths(),
 		react(),
-		svgr(),
+		svgr({
+			svgrOptions: {
+				replaceAttrValues: {
+					fromprops: "{props.fille}",
+					fromdarkprops: "{props.fillo}",
+				},
+			},
+		}),
 		linaria({
 			include: ["**/*.{ts,tsx}"],
 			babelOptions: {

@@ -5,11 +5,13 @@ import ColoredLine from "@/components/ColoredLine";
 import NextButton from "@/components/NextButton";
 import Spacer from "@/components/generic/Spacer";
 import { animationContext } from "@/contexts/animation-context";
+import useTheme from "@/hooks/use-theme";
 import { LayoutIds } from "@/utils/constants";
 import { fade, objectIf } from "@/utils/utils";
 import { ReactComponent as Shapes } from "assets/shapes.svg";
 
 export default function Home() {
+	const theme = useTheme();
 	const [disableAnimations, setDisableAnimations] =
 		useContext(animationContext);
 
@@ -42,7 +44,7 @@ export default function Home() {
 						layoutId="shapes"
 						{...fade(timings["shapes"], disableAnimations)}
 					>
-						<Shapes className={styles.shapes} />
+						<Shapes fill={theme.accent} className={styles.shapes} />
 					</motion.div>
 
 					<Spacer vertical={6} />
@@ -63,6 +65,7 @@ export default function Home() {
 					{/* Name Text */}
 					<motion.p
 						{...fade(timings["text"], disableAnimations)}
+						style={{ color: theme.accent }}
 						className={styles.nameText}
 						layoutId={LayoutIds.Title2}
 						layout="position"
@@ -98,7 +101,6 @@ const styles = {
 		font-family: Manrope;
 	`,
 	nameText: css`
-		color: #f38235;
 		font-size: min(11.2vw, 58px);
 		font-weight: 600;
 		margin-top: -4px;

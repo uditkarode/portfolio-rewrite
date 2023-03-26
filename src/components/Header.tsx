@@ -18,7 +18,7 @@ export default function Header(props: { text: [string, string] }) {
 			<div className={cx("flex", "full-width", "align-items-center")}>
 				{/* Shapes */}
 				<motion.div layoutId={LayoutIds.Shapes} layout="position">
-					<Shapes className={styles.shapes} />
+					<Shapes fill={theme.accent} className={styles.shapes} />
 				</motion.div>
 
 				<Spacer horizontal={14} />

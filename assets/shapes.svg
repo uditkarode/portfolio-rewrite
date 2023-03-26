@@ -1,4 +1,4 @@
 <svg viewBox="0 0 184 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="37.9298" cy="38.4737" r="37.9298" fill="#F38235" fill-opacity="0.4"/>
-<path d="M135.579 0.543884L177.513 74.386H93.6451L135.579 0.543884Z" fill="#F38235" fill-opacity="0.4"/>
+<circle cx="37.9298" cy="38.4737" r="37.9298" fill="fromprops" fill-opacity="0.4"/>
+<path d="M135.579 0.543884L177.513 74.386H93.6451L135.579 0.543884Z" fill="fromprops" fill-opacity="0.4"/>
 </svg>

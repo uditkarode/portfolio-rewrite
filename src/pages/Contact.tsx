@@ -1,9 +1,17 @@
-import { css } from "@linaria/core";
+import { CSSProperties, css } from "@linaria/core";
 import { Link } from "react-router-dom";
 import Scaffold from "@/components/Scaffold";
+import useTheme from "@/hooks/use-theme";
 import { contact } from "@/utils/constants";
+import { lumenColor } from "@/utils/utils";
 
 export default function Contact() {
+	const theme = useTheme();
+	const linkStyle = {
+		color: lumenColor(theme.accent, 32),
+		opacity: 0.8,
+	} satisfies CSSProperties;
+
 	return (
 		<Scaffold
 			headerText={["contact", "me"]}
@@ -13,14 +21,23 @@ export default function Contact() {
 		>
 			<p className={styles.text}>
 				The fastest way to reach me is through{" "}
-				<Link target="_blank" className={styles.link} to={contact.telegram}>
+				<Link
+					target="_blank"
+					className={styles.link}
+					to={contact.telegram}
+					style={linkStyle}
+				>
 					Telegram
 				</Link>
 				.
 				<br />
 				<br />
 				An{" "}
-				<Link className={styles.link} to={`mailto:${contact.email}`}>
+				<Link
+					className={styles.link}
+					to={`mailto:${contact.email}`}
+					style={linkStyle}
+				>
 					email
 				</Link>{" "}
 				works as well.
@@ -42,7 +59,6 @@ const styles = {
 		color: #e9e9e9;
 	`,
 	link: css`
-		color: rgb(234, 154, 100);
 		text-decoration: underline;
 		font-weight: 500;
 	`,
