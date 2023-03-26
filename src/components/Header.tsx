@@ -1,4 +1,4 @@
-import { css } from "@linaria/core";
+import { css, cx } from "@linaria/core";
 import { motion } from "framer-motion";
 import useTheme from "@/hooks/use-theme";
 import { LayoutIds } from "@/utils/constants";
@@ -15,7 +15,7 @@ export default function Header(props: { text: [string, string] }) {
 
 	return (
 		<div className={styles.container}>
-			<div className="flex full-width align-items-center">
+			<div className={cx("flex", "full-width", "align-items-center")}>
 				{/* Shapes */}
 				<motion.div layoutId={LayoutIds.Shapes} layout="position">
 					<Shapes className={styles.shapes} />

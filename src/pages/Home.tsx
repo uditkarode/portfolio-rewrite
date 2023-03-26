@@ -1,4 +1,4 @@
-import { css } from "@linaria/core";
+import { css, cx } from "@linaria/core";
 import { Transition, motion } from "framer-motion";
 import { useContext } from "react";
 import ColoredLine from "@/components/ColoredLine";
@@ -21,7 +21,7 @@ export default function Home() {
 	} as const satisfies Record<string, Transition>;
 
 	return (
-		<div className="fill flex flex-center-children">
+		<div className={cx("fill", "flex", "flex-center-children")}>
 			<div className="flex-col">
 				{/* Colored Line */}
 				<ColoredLine

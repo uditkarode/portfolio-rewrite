@@ -1,4 +1,4 @@
-import { css } from "@linaria/core";
+import { css, cx } from "@linaria/core";
 import { Link } from "react-router-dom";
 import Spacer from "./generic/Spacer";
 import { ReactComponent as BookIcon } from "assets/book.svg";
@@ -15,7 +15,7 @@ export default function Project(props: {
 			<div className={styles.container}>
 				<div className={styles.content}>
 					{/* Repository name */}
-					<div className="flex align-items-center">
+					<div className={cx("flex", "align-items-center")}>
 						<BookIcon className={styles.bookIcon} />
 						<Spacer horizontal={15} />
 						<p className={styles.repoName}>{props.name}</p>
@@ -29,7 +29,7 @@ export default function Project(props: {
 					<Spacer grow />
 
 					{/* Language name */}
-					<div className="flex align-items-center">
+					<div className={cx("flex", "align-items-center")}>
 						<div
 							className={styles.circle}
 							style={{ backgroundColor: props.languageColor }}

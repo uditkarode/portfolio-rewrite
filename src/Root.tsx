@@ -2,7 +2,7 @@ import "./styles/fonts.css";
 import "./styles/global.css";
 import "./styles/reset.css";
 import "./styles/utils.css";
-import { css } from "@linaria/core";
+import { css, cx } from "@linaria/core";
 import React, { Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
@@ -49,7 +49,7 @@ function Root() {
 	return (
 		<AnimationContextProvider value={animationState}>
 			<div
-				className="fill flex-col align-items-center"
+				className={cx("fill", "flex-col", "align-items-center")}
 				style={{
 					backgroundColor: theme.background,
 				}}
