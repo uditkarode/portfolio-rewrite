@@ -11,8 +11,8 @@ export default defineConfig({
 		svgr({
 			svgrOptions: {
 				replaceAttrValues: {
-					fromprops: "{props.fille}",
-					fromdarkprops: "{props.fillo}",
+					color1: "{props.color1}",
+					color2: "{props.color2}",
 				},
 			},
 		}),

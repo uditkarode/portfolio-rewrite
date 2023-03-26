@@ -22,10 +22,8 @@ export default function NextButton(props: {
 		>
 			<Link to={props.buttonLink}>
 				<NextButtonAsset
-					// @ts-ignore
-					fille={theme.accent}
-					// @ts-ignore
-					fillo={lumenColor(theme.accent, 60)}
+					color1={theme.accent}
+					color2={lumenColor(theme.accent, 60)}
 					className={styles.nextButton}
 				/>
 			</Link>
