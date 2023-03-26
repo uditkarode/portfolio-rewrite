@@ -56,7 +56,7 @@ export default function About() {
 
 const styles = {
 	text: css`
-		font-size: 22px;
+		font-size: min(5vw, 22px);
 		font-family: Inter;
 		line-height: 1.5;
 		color: #e9e9e9;

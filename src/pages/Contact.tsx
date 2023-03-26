@@ -28,6 +28,7 @@ const styles = {
 	text: css`
 		font-size: 22px;
 		line-height: 1.5;
+		font-family: Inter;
 	`,
 	link: css`
 		color: rgb(234, 154, 100);

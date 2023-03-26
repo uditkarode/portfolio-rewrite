@@ -61,14 +61,15 @@ const styles = {
 		align-items: center;
 	`,
 	shapes: css`
-		width: 82px;
+		width: min(18vw, 82px);
+		margin-top: 2px;
 	`,
 	about: css`
-		font-size: 34px;
+		font-size: min(8vw, 34px);
 		font-family: Manrope;
 	`,
 	me: css`
-		font-size: 34px;
+		font-size: min(8vw, 34px);
 		font-family: Manrope;
 		font-weight: bold;
 	`,

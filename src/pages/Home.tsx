@@ -102,13 +102,13 @@ const styles = {
 	`,
 	helperText: css`
 		color: #fbfbfb;
-		font-size: 54px;
+		font-size: min(10vw, 54px);
 		line-height: 1.125;
 		font-family: Manrope;
 	`,
 	nameText: css`
 		color: #f38235;
-		font-size: 58px;
+		font-size: min(12vw, 58px);
 		font-weight: 600;
 		margin-top: -4px;
 		font-family: Manrope;
