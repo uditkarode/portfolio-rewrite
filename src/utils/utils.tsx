@@ -1,4 +1,4 @@
-import { MotionProps, Transition } from "framer-motion";
+import { MotionProps, Transition, clamp } from "framer-motion";
 import { birthday } from "./constants";
 
 export function fade(
@@ -30,28 +30,16 @@ export function yearsFromBirthday() {
 	);
 }
 
-// https://css-tricks.com/snippets/javascript/lighten-darken-color/
-// positive amount = lighten, negative amount = darken
+// color logic from https://css-tricks.com/snippets/javascript/lighten-darken-color/
+// positive amount = lighten, negative amount = darken, range 0-100
 export function lumenColor(color: string, amount: number) {
-	let usePound = false;
+	const usePound = color[0] == "#";
+	if (usePound) color = color.slice(1);
 
-	if (color[0] == "#") {
-		color = color.slice(1);
-		usePound = true;
-	}
-
-	const num = parseInt(color, 16);
-	let r = (num >> 16) + amount;
-	if (r > 255) r = 255;
-	else if (r < 0) r = 0;
-
-	let b = ((num >> 8) & 0x00ff) + amount;
-	if (b > 255) b = 255;
-	else if (b < 0) b = 0;
-
-	let g = (num & 0x0000ff) + amount;
-	if (g > 255) g = 255;
-	else if (g < 0) g = 0;
+	const hexColor = parseInt(color, 16);
+	const r = clamp(0, 255, (hexColor >> 16) + amount);
+	const g = clamp(0, 255, (hexColor & 0x0000ff) + amount);
+	const b = clamp(0, 255, ((hexColor >> 8) & 0x00ff) + amount);
 
 	return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
 }
