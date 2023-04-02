@@ -2,6 +2,9 @@ import { Theme } from "@/stores/theme-store";
 
 export const birthday = new Date("February 17, 2001");
 
+export const portfolioSource =
+	"https://github.com/uditkarode/portfolio-rewrite";
+
 export const contact = {
 	telegram: "https://t.me/uditkarode",
 	email: "me@uditkaro.de",
