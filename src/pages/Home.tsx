@@ -1,17 +1,17 @@
 import { css, cx } from "@linaria/core";
 import { Transition, motion } from "framer-motion";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import ColoredLine from "@/components/ColoredLine";
 import NextButton from "@/components/NextButton";
 import Spacer from "@/components/generic/Spacer";
 import { animationContext } from "@/contexts/animation-context";
-import useTheme from "@/hooks/use-theme";
-import { LayoutIds } from "@/utils/constants";
-import { fade, objectIf } from "@/utils/utils";
+import { useThemeStore } from "@/stores/theme-store";
+import { LayoutIds, darkTheme, lightTheme } from "@/utils/constants";
+import { fade, objectIf, randomColor } from "@/utils/utils";
 import { ReactComponent as Shapes } from "assets/shapes.svg";
 
 export default function Home() {
-	const theme = useTheme();
+	const { theme, setTheme } = useThemeStore();
 	const [disableAnimations, setDisableAnimations] =
 		useContext(animationContext);
 
@@ -42,7 +42,11 @@ export default function Home() {
 					<motion.div
 						layout="position"
 						layoutId="shapes"
+						style={{ cursor: "pointer" }}
 						{...fade(timings["shapes"], disableAnimations)}
+						onClick={() =>
+							setTheme(theme.type == "dark" ? lightTheme : darkTheme)
+						}
 					>
 						<Shapes fill={theme.accent} className={styles.shapes} />
 					</motion.div>
@@ -52,6 +56,7 @@ export default function Home() {
 					{/* Helper Text */}
 					<motion.p
 						{...fade(timings["text"], disableAnimations)}
+						style={{ color: theme.text }}
 						className={styles.helperText}
 						layoutId={LayoutIds.Title1}
 						layout="position"
@@ -69,6 +74,7 @@ export default function Home() {
 						className={styles.nameText}
 						layoutId={LayoutIds.Title2}
 						layout="position"
+						onClick={() => setTheme({ accent: randomColor() })}
 						onAnimationComplete={() => {
 							setDisableAnimations(true);
 						}}
@@ -105,5 +111,7 @@ const styles = {
 		font-weight: 600;
 		margin-top: -4px;
 		font-family: Manrope;
+		cursor: pointer;
+		user-select: none;
 	`,
 };

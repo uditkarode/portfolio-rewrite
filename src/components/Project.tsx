@@ -1,5 +1,6 @@
 import { css, cx } from "@linaria/core";
 import { Link } from "react-router-dom";
+import useTheme from "@/hooks/use-theme";
 import Spacer from "./generic/Spacer";
 import { ReactComponent as BookIcon } from "assets/book.svg";
 
@@ -10,21 +11,27 @@ export default function Project(props: {
 	languageColor: string;
 	link: string;
 }) {
+	const theme = useTheme();
+
 	return (
 		<Link to={props.link}>
 			<div className={styles.container}>
 				<div className={styles.content}>
 					{/* Repository name */}
 					<div className={cx("flex", "align-items-center")}>
-						<BookIcon className={styles.bookIcon} />
+						<BookIcon color1={theme.text} className={styles.bookIcon} />
 						<Spacer horizontal={15} />
-						<p className={styles.repoName}>{props.name}</p>
+						<p style={{ color: theme.text }} className={styles.repoName}>
+							{props.name}
+						</p>
 					</div>
 
 					<Spacer vertical={12} />
 
 					{/* Repository description */}
-					<p className={styles.description}>{props.description}</p>
+					<p style={{ color: theme.text }} className={styles.description}>
+						{props.description}
+					</p>
 
 					<Spacer grow />
 
@@ -35,7 +42,9 @@ export default function Project(props: {
 							style={{ backgroundColor: props.languageColor }}
 						/>
 						<Spacer horizontal={10} />
-						<p className={styles.languageName}>{props.language}</p>
+						<p style={{ color: theme.text }} className={styles.languageName}>
+							{props.language}
+						</p>
 					</div>
 				</div>
 			</div>

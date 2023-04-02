@@ -19,7 +19,7 @@ export default function Contact() {
 			rotatedButton
 			largeButton
 		>
-			<p className={styles.text}>
+			<p style={{ color: theme.text }} className={styles.text}>
 				The fastest way to reach me is through{" "}
 				<Link
 					target="_blank"
@@ -56,7 +56,7 @@ const styles = {
 		font-family: Inter;
 		font-weight: 500;
 		letter-spacing: -0.6px;
-		color: #e9e9e9;
+		opacity: 0.8;
 	`,
 	link: css`
 		text-decoration: underline;

@@ -1,26 +1,31 @@
 import { create } from "zustand";
-
-const defaultTheme: Theme = {
-	accent: "#f38235",
-	background: "#000000",
-};
+import { persist } from "zustand/middleware";
+import { darkTheme } from "@/utils/constants";
 
 // context needlessly updates all it's children
 // zustand store will update only the components
 // that actually use colors from the theme
-export const useThemeStore = create<ThemeStore>(set => ({
-	theme: defaultTheme,
-	setTheme: (newt: Theme) => set(oldt => ({ ...oldt, ...newt })),
-}));
+export const useThemeStore = create(
+	persist<ThemeStore>(
+		(set, get) => ({
+			theme: darkTheme,
+			setTheme: (newt: Partial<Theme>) =>
+				set({ theme: { ...get().theme, ...newt } }),
+		}),
+		{ name: "theme" },
+	),
+);
 
 type Color = `#${string}`;
 
-interface Theme {
+export interface Theme {
+	type: "dark" | "light";
 	background: Color;
 	accent: Color;
+	text: Color;
 }
 
 interface ThemeStore {
 	theme: Theme;
-	setTheme: (theme: Theme) => void;
+	setTheme: (theme: Partial<Theme>) => void;
 }

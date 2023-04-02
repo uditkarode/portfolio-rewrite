@@ -43,3 +43,11 @@ export function lumenColor(color: string, amount: number) {
 
 	return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
 }
+
+// https://css-tricks.com/snippets/javascript/random-hex-color
+export function randomColor() {
+	return lumenColor(
+		`#${Math.floor(Math.random() * 16777215).toString(16)}`,
+		0.2,
+	) as `#${string}`;
+}

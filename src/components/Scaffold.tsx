@@ -4,6 +4,7 @@ import { PropsWithChildren } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Spacer from "@/components/generic/Spacer";
+import useTheme from "@/hooks/use-theme";
 import { LayoutIds } from "@/utils/constants";
 import { fade } from "@/utils/utils";
 import NextButton from "./NextButton";
@@ -17,6 +18,8 @@ interface Props {
 }
 
 export default function Scaffold(props: PropsWithChildren<Props>) {
+	const theme = useTheme();
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.topSpacing} />
@@ -29,7 +32,12 @@ export default function Scaffold(props: PropsWithChildren<Props>) {
 				<Spacer vertical={24} />
 				{props.children}
 
-				<div className={styles.gradient} />
+				<div
+					style={{
+						background: `linear-gradient(transparent, ${theme.background})`,
+					}}
+					className={styles.gradient}
+				/>
 			</motion.div>
 
 			<Spacer vertical={20} />
@@ -74,8 +82,7 @@ const styles = {
 	gradient: css`
 		position: sticky;
 		bottom: 0;
-		height: 32px;
+		min-height: 32px;
 		width: 100%;
-		background: linear-gradient(transparent, rgba(0, 0, 0, 1));
 	`,
 };

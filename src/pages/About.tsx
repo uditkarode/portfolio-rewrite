@@ -27,7 +27,7 @@ export default function About() {
 
 	return (
 		<Scaffold headerText={["about", "me"]} buttonLink="/projects">
-			<p className={styles.text}>
+			<p className={styles.text} style={{ color: theme.text }}>
 				I'm a {yearsFromBirthday()} year old developer. I like making useful
 				things!
 				<br /> It all started when I was 16, and the first language I used was

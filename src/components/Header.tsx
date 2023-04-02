@@ -27,6 +27,7 @@ export default function Header(props: { text: [string, string] }) {
 				<motion.p
 					layoutId={titleLayoutIds[0]}
 					className={styles.about}
+					style={{ color: theme.text }}
 					layout="position"
 				>
 					{props.text[0]}

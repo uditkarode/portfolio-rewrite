@@ -1,3 +1,5 @@
+import { Theme } from "@/stores/theme-store";
+
 export const birthday = new Date("February 17, 2001");
 
 export const contact = {
@@ -12,3 +14,17 @@ export const enum LayoutIds {
 	Line = "line",
 	Button = "button",
 }
+
+export const darkTheme: Theme = {
+	type: "dark",
+	accent: "#f38235",
+	background: "#000000",
+	text: "#fbfbfb",
+};
+
+export const lightTheme: Theme = {
+	type: "light",
+	accent: "#f38235",
+	background: "#fbfbfb",
+	text: "#121212",
+};
