@@ -4,7 +4,13 @@ import "./styles/reset.css";
 import "./styles/utils.css";
 import { css, cx } from "@linaria/core";
 import { motion } from "framer-motion";
-import React, { CSSProperties, Suspense, useContext, useState } from "react";
+import React, {
+	CSSProperties,
+	Suspense,
+	useContext,
+	useEffect,
+	useState,
+} from "react";
 import ReactDOM from "react-dom/client";
 import {
 	BrowserRouter,
@@ -72,6 +78,12 @@ function Wrapper() {
 function Root() {
 	const { theme } = useThemeStore();
 	const [disableAnimations] = useContext(animationContext);
+
+	useEffect(() => {
+		const meta = document.querySelector("meta[name='theme-color']");
+		// @ts-expect-error the result is not an HTML element
+		if (meta) meta.content = theme.background;
+	}, [theme]);
 
 	return (
 		<motion.div
