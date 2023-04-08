@@ -14,7 +14,7 @@ export default function Project(props: {
 	const theme = useTheme();
 
 	return (
-		<Link to={props.link}>
+		<Link target="_blank" to={props.link}>
 			<div className={styles.container}>
 				<div className={styles.content}>
 					{/* Repository name */}
