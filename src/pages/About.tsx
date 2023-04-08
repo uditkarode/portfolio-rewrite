@@ -1,11 +1,11 @@
 import { css } from "@linaria/core";
 import { PropsWithChildren, useCallback } from "react";
 import Scaffold from "@/components/Scaffold";
-import useTheme from "@/hooks/use-theme";
+import { useThemeStore } from "@/stores/theme-store";
 import { lumenColor, yearsFromBirthday } from "@/utils/utils";
 
 export default function About() {
-	const theme = useTheme();
+	const { theme } = useThemeStore();
 
 	// ACCented Text, written shortly so it's easier to use
 	const Act = useCallback(

@@ -1,9 +1,9 @@
 import { MotionProps, motion } from "framer-motion";
-import useTheme from "@/hooks/use-theme";
+import { useThemeStore } from "@/stores/theme-store";
 import { LayoutIds } from "@/utils/constants";
 
 export default function ColoredLine(props: MotionProps) {
-	const theme = useTheme();
+	const { theme } = useThemeStore();
 
 	return (
 		<motion.figure style={{ width: "100%" }} layoutId={LayoutIds.Line}>

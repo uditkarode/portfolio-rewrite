@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { PropsWithChildren } from "react";
 import Header from "@/components/Header";
 import Spacer from "@/components/generic/Spacer";
-import useTheme from "@/hooks/use-theme";
+import { useThemeStore } from "@/stores/theme-store";
 import { fade } from "@/utils/utils";
 import NextButton from "./NextButton";
 
@@ -15,7 +15,7 @@ interface Props {
 }
 
 export default function Scaffold(props: PropsWithChildren<Props>) {
-	const theme = useTheme();
+	const { theme } = useThemeStore();
 
 	return (
 		<div className={styles.container}>
@@ -29,11 +29,12 @@ export default function Scaffold(props: PropsWithChildren<Props>) {
 				<Spacer vertical={24} />
 				{props.children}
 
-				<div
+				<motion.div
 					className={styles.gradient}
-					style={{
+					animate={{
 						background: `linear-gradient(transparent, ${theme.background})`,
 					}}
+					transition={{ duration: 0.4 }}
 				/>
 			</motion.div>
 

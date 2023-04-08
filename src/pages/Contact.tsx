@@ -2,12 +2,12 @@ import { CSSProperties, css } from "@linaria/core";
 import { useCallback } from "react";
 import { Link } from "react-router-dom";
 import Scaffold from "@/components/Scaffold";
-import useTheme from "@/hooks/use-theme";
+import { useThemeStore } from "@/stores/theme-store";
 import { contact, portfolioSource } from "@/utils/constants";
 import { lumenColor } from "@/utils/utils";
 
 export default function Contact() {
-	const theme = useTheme();
+	const { theme } = useThemeStore();
 	const linkStyle = {
 		color: lumenColor(theme.accent, 32),
 		opacity: 0.8,
@@ -45,9 +45,8 @@ export default function Contact() {
 				as well.
 				<br />
 				<br />
-				In case you missed it, try clicking on the shapes or my name
-				<br />
-				on the home page!
+				In case you missed it, try clicking on the shapes or the accented header
+				text!
 				<br /> <br />
 				Source for this portfolio is{" "}
 				<ContactPageLink to={portfolioSource} text="here" />

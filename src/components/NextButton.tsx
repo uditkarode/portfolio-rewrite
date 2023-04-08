@@ -1,7 +1,7 @@
 import { css } from "@linaria/core";
 import { MotionProps, MotionStyle, motion as m } from "framer-motion";
 import { Link } from "react-router-dom";
-import useTheme from "@/hooks/use-theme";
+import { useThemeStore } from "@/stores/theme-store";
 import { LayoutIds } from "@/utils/constants";
 import { lumenColor } from "@/utils/utils";
 import { ReactComponent as NextButtonAsset } from "assets/next-button.svg";
@@ -11,7 +11,7 @@ export default function NextButton(props: {
 	style?: MotionStyle;
 	buttonLink: string;
 }) {
-	const theme = useTheme();
+	const { theme } = useThemeStore();
 
 	return (
 		<m.div

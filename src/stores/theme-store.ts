@@ -1,6 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { darkTheme } from "@/utils/constants";
+import { darkTheme, defaultTheme, lightTheme } from "@/utils/constants";
+import { randomColor } from "@/utils/utils";
 
 // context needlessly updates all it's children
 // zustand store will update only the components
@@ -8,9 +9,20 @@ import { darkTheme } from "@/utils/constants";
 export const useThemeStore = create(
 	persist<ThemeStore>(
 		(set, get) => ({
-			theme: darkTheme,
+			theme: defaultTheme,
 			setTheme: (newt: Partial<Theme>) =>
 				set({ theme: { ...get().theme, ...newt } }),
+			toggleTheme: () =>
+				set({
+					theme: {
+						...get().theme,
+						...(get().theme.type == "dark" ? lightTheme : darkTheme),
+					},
+				}),
+			setRandomAccent: () =>
+				set({
+					theme: { ...get().theme, accent: randomColor() },
+				}),
 		}),
 		{ name: "theme" },
 	),
@@ -28,4 +40,6 @@ export interface Theme {
 interface ThemeStore {
 	theme: Theme;
 	setTheme: (theme: Partial<Theme>) => void;
+	toggleTheme: () => void;
+	setRandomAccent: () => void;
 }

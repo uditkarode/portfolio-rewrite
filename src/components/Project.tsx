@@ -1,6 +1,6 @@
 import { css, cx } from "@linaria/core";
 import { Link } from "react-router-dom";
-import useTheme from "@/hooks/use-theme";
+import { useThemeStore } from "@/stores/theme-store";
 import Spacer from "./generic/Spacer";
 import { ReactComponent as BookIcon } from "assets/book.svg";
 
@@ -11,7 +11,7 @@ export default function Project(props: {
 	languageColor: string;
 	link: string;
 }) {
-	const theme = useTheme();
+	const { theme } = useThemeStore();
 
 	return (
 		<Link target="_blank" to={props.link}>

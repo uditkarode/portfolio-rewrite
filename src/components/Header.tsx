@@ -1,13 +1,13 @@
 import { css, cx } from "@linaria/core";
 import { motion } from "framer-motion";
-import useTheme from "@/hooks/use-theme";
+import { useThemeStore } from "@/stores/theme-store";
 import { LayoutIds } from "@/utils/constants";
 import ColoredLine from "./ColoredLine";
 import Spacer from "./generic/Spacer";
 import { ReactComponent as Shapes } from "assets/shapes.svg";
 
 export default function Header(props: { text: [string, string] }) {
-	const theme = useTheme();
+	const { theme, toggleTheme, setRandomAccent } = useThemeStore();
 	const titleLayoutIds =
 		props.text[0].length > props.text[1].length
 			? [LayoutIds.Title1, LayoutIds.Title2]
@@ -18,7 +18,11 @@ export default function Header(props: { text: [string, string] }) {
 			<div className={cx("flex", "full-width", "align-items-center")}>
 				{/* Shapes */}
 				<motion.div layoutId={LayoutIds.Shapes} layout="position">
-					<Shapes fill={theme.accent} className={styles.shapes} />
+					<Shapes
+						fill={theme.accent}
+						className={styles.shapes}
+						onClick={toggleTheme}
+					/>
 				</motion.div>
 
 				<Spacer horizontal={14} />
@@ -40,6 +44,7 @@ export default function Header(props: { text: [string, string] }) {
 					layoutId={titleLayoutIds[1]}
 					className={styles.me}
 					style={{ color: theme.accent }}
+					onClick={setRandomAccent}
 					layout="position"
 				>
 					{props.text[1]}
@@ -60,6 +65,7 @@ const styles = {
 		align-items: center;
 	`,
 	shapes: css`
+		cursor: pointer;
 		width: min(18vw, 82px);
 		margin-top: 2px;
 	`,
@@ -71,5 +77,6 @@ const styles = {
 		font-size: min(8vw, 34px);
 		font-family: Manrope;
 		font-weight: bold;
+		cursor: pointer;
 	`,
 };

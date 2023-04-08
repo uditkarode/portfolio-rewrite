@@ -3,7 +3,8 @@ import "./styles/global.css";
 import "./styles/reset.css";
 import "./styles/utils.css";
 import { css, cx } from "@linaria/core";
-import React, { CSSProperties, Suspense, useState } from "react";
+import { motion } from "framer-motion";
+import React, { CSSProperties, Suspense, useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import {
 	BrowserRouter,
@@ -13,19 +14,22 @@ import {
 	Routes,
 	useLocation,
 } from "react-router-dom";
-import { AnimationContextProvider } from "./contexts/animation-context";
-import useTheme from "./hooks/use-theme";
+import {
+	AnimationContextProvider,
+	animationContext,
+} from "./contexts/animation-context";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
+import { useThemeStore } from "./stores/theme-store";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<Suspense fallback={<p>Loading...</p>}>
 				<Routes>
-					<Route element={<Root />}>
+					<Route element={<Wrapper />}>
 						<Route path="/" element={<Home />} />
 						<Route path="/about" element={<About />} />
 						<Route path="/projects" element={<Projects />} />
@@ -51,8 +55,7 @@ const globalStyle = css`
 	}
 `;
 
-function Root() {
-	const theme = useTheme();
+function Wrapper() {
 	const location = useLocation();
 
 	// disable starting animation by default only if the
@@ -61,17 +64,25 @@ function Root() {
 
 	return (
 		<AnimationContextProvider value={animationState}>
-			<div
-				className={cx("fill", "flex-col", "align-items-center", globalStyle)}
-				style={
-					{
-						"backgroundColor": theme.background,
-						"--accent-color": theme.accent,
-					} as CSSProperties
-				}
-			>
-				<Outlet />
-			</div>
+			<Root />
 		</AnimationContextProvider>
+	);
+}
+
+function Root() {
+	const { theme } = useThemeStore();
+	const [disableAnimations] = useContext(animationContext);
+
+	return (
+		<motion.div
+			className={cx("fill", "flex-col", "align-items-center", globalStyle)}
+			style={{ "--accent-color": theme.accent } as CSSProperties}
+			animate={{
+				backgroundColor: theme.background,
+			}}
+			transition={{ duration: disableAnimations ? 0.4 : 0 }}
+		>
+			<Outlet />
+		</motion.div>
 	);
 }

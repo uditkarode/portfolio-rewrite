@@ -18,16 +18,16 @@ export const enum LayoutIds {
 	Button = "button",
 }
 
-export const darkTheme: Theme = {
+export const darkTheme = {
 	type: "dark",
-	accent: "#f38235",
 	background: "#000000",
 	text: "#fbfbfb",
-};
+} as const;
 
-export const lightTheme: Theme = {
+export const lightTheme = {
 	type: "light",
-	accent: "#f38235",
 	background: "#fbfbfb",
 	text: "#121212",
-};
+} as const;
+
+export const defaultTheme: Theme = { ...darkTheme, accent: "#f38235" };
