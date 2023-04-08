@@ -1,18 +1,15 @@
 import { css } from "@linaria/core";
 import { motion } from "framer-motion";
 import { PropsWithChildren } from "react";
-import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Spacer from "@/components/generic/Spacer";
 import useTheme from "@/hooks/use-theme";
-import { LayoutIds } from "@/utils/constants";
 import { fade } from "@/utils/utils";
 import NextButton from "./NextButton";
 
 interface Props {
 	headerText: [string, string];
 	buttonLink: string;
-
 	rotatedButton?: boolean;
 	largeButton?: boolean;
 }
@@ -33,10 +30,10 @@ export default function Scaffold(props: PropsWithChildren<Props>) {
 				{props.children}
 
 				<div
+					className={styles.gradient}
 					style={{
 						background: `linear-gradient(transparent, ${theme.background})`,
 					}}
-					className={styles.gradient}
 				/>
 			</motion.div>
 
@@ -73,6 +70,7 @@ const styles = {
 		width: 100%;
 		overflow: auto;
 		position: relative;
+		padding-right: 10px;
 	`,
 	nextButton: css`
 		height: 100%;
@@ -81,8 +79,8 @@ const styles = {
 	`,
 	gradient: css`
 		position: sticky;
-		bottom: 0;
-		min-height: 32px;
+		bottom: -1px;
+		min-height: 40px;
 		width: 100%;
 	`,
 };

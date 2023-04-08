@@ -15,11 +15,13 @@ export default function Home() {
 	const [disableAnimations, setDisableAnimations] =
 		useContext(animationContext);
 
+	const initialDelay = 0.7;
+
 	const timings = {
-		line: { duration: 0.3, delay: 0.32, type: "spring" },
-		shapes: { duration: 1, delay: 1.2, type: "spring" },
-		text: { duration: 1, delay: 1.22, type: "spring" },
-		button: { delay: 2.06, type: "spring" },
+		line: { duration: 0.3, delay: initialDelay, type: "spring" },
+		shapes: { duration: 1, delay: initialDelay + 0.678, type: "spring" },
+		text: { duration: 1, delay: initialDelay + 0.7, type: "spring" },
+		button: { delay: initialDelay + 1.7, type: "spring" },
 	} as const satisfies Record<string, Transition>;
 
 	return (

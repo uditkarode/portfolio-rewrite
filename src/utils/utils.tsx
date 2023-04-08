@@ -31,7 +31,7 @@ export function yearsFromBirthday() {
 }
 
 // color logic from https://css-tricks.com/snippets/javascript/lighten-darken-color/
-// positive amount = lighten, negative amount = darken, range 0-100
+// positive amount = lighten, negative amount = darken, range -100 to 100
 export function lumenColor(color: string, amount: number) {
 	const usePound = color[0] == "#";
 	if (usePound) color = color.slice(1);

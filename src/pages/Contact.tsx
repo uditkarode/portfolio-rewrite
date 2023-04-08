@@ -1,4 +1,5 @@
 import { CSSProperties, css } from "@linaria/core";
+import { useCallback } from "react";
 import { Link } from "react-router-dom";
 import Scaffold from "@/components/Scaffold";
 import useTheme from "@/hooks/use-theme";
@@ -12,6 +13,22 @@ export default function Contact() {
 		opacity: 0.8,
 	} satisfies CSSProperties;
 
+	const ContactPageLink = useCallback(
+		(props: { text: string; to: string }) => {
+			return (
+				<Link
+					target="_blank"
+					className={styles.link}
+					style={linkStyle}
+					to={props.to}
+				>
+					{props.text}
+				</Link>
+			);
+		},
+		[linkStyle],
+	);
+
 	return (
 		<Scaffold
 			headerText={["contact", "me"]}
@@ -21,25 +38,11 @@ export default function Contact() {
 		>
 			<p style={{ color: theme.text }} className={styles.text}>
 				The fastest way to reach me is through{" "}
-				<Link
-					target="_blank"
-					className={styles.link}
-					to={contact.telegram}
-					style={linkStyle}
-				>
-					Telegram
-				</Link>
+				<ContactPageLink to={contact.telegram} text="Telegram" />
 				.
 				<br />
-				An{" "}
-				<Link
-					className={styles.link}
-					to={`mailto:${contact.email}`}
-					style={linkStyle}
-				>
-					email
-				</Link>{" "}
-				works as well.
+				An <ContactPageLink to={`mailto:${contact.email}`} text="email" /> works
+				as well.
 				<br />
 				<br />
 				In case you missed it, try clicking on the shapes or my name
@@ -47,9 +50,7 @@ export default function Contact() {
 				on the home page!
 				<br /> <br />
 				Source for this portfolio is{" "}
-				<Link className={styles.link} style={linkStyle} to={portfolioSource}>
-					here
-				</Link>
+				<ContactPageLink to={portfolioSource} text="here" />
 				. <br />
 				Thanks for stopping by!
 			</p>
