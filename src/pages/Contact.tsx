@@ -45,8 +45,8 @@ export default function Contact() {
 				as well.
 				<br />
 				<br />
-				In case you missed it, try clicking on the shapes or the accented header
-				text!
+				In case you missed it, try clicking on the shapes or the accented text
+				on the header!
 				<br /> <br />
 				Source for this portfolio is{" "}
 				<ContactPageLink to={portfolioSource} text="here" />
