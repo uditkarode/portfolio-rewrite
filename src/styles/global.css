@@ -22,10 +22,6 @@ a {
 	margin: 0;
 }
 
-div {
-	scrollbar-color: #f38235 #000000;
-}
-
 div::-webkit-scrollbar-track {
 	border-radius: 10px;
 	background-color: #000000;
@@ -34,9 +30,4 @@ div::-webkit-scrollbar-track {
 div::-webkit-scrollbar {
 	width: 1px;
 	background-color: #000000;
-}
-
-div::-webkit-scrollbar-thumb {
-	border-radius: 8px;
-	background-color: #f39235;
 }
