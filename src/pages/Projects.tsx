@@ -73,7 +73,7 @@ export default function Projects() {
 				<Project
 					name="kumi"
 					link="https://github.com/uditkarode/kumi"
-					description="parser combinator library that tries to mimics Haskell's parsec"
+					description="parser combinator library that tries to mimic Haskell's Parsec"
 					language="TypeScript"
 					languageColor="#2b7489"
 				/>
