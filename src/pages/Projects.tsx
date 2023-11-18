@@ -93,6 +93,14 @@ export default function Projects() {
 					language="Haskell"
 					languageColor="#5e5086"
 				/>
+
+				<Project
+					name="unocab"
+					link="https://github.com/uditkarode/unocab"
+					description="a library to help implement the uno game effortlessly"
+					language="TypeScript"
+					languageColor="#2b7489"
+				/>
 			</div>
 		</Scaffold>
 	);

@@ -30,4 +30,4 @@ export const lightTheme = {
 	text: "#121212",
 } as const;
 
-export const defaultTheme: Theme = { ...darkTheme, accent: "#f38235" };
+export const defaultTheme: Theme = { ...darkTheme, accent: "#6b86f9" };

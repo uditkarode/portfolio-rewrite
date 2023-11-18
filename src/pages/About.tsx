@@ -40,12 +40,12 @@ export default function About() {
 				editors like Vim and Emacs.
 				<br />
 				<br /> Some things I currently do are:
+				<br /> • <Act>Web Development</Act> - back-end using{" "}
+				<Act>TypeScript</Act> / <Act>Go</Act> / <Act>Rust</Act> / <Act>Haskell</Act>, and
+				front-end using <Act>React</Act> / <Act>Vue</Act>.
 				<br /> • <Act>Mobile App Development</Act> - mainly using{" "}
 				<Act>React Native</Act>, and sometimes <Act>Native</Act> or{" "}
-				<Act>Flutter</Act>.
-				<br /> • <Act>Web Development</Act> - back-end using{" "}
-				<Act>TypeScript</Act> / <Act>Rust</Act> / <Act>Haskell</Act>, and
-				front-end using <Act>React</Act>.<br />
+				<Act>Flutter</Act>.<br />
 				<br /> I'm also a Linux enthusiast and have spent a considerable amount
 				of time messing with kernels.
 				<br />
