@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useThemeStore } from "@/stores/theme-store";
 import { LayoutIds } from "@/utils/constants";
 import { lumenColor } from "@/utils/utils";
-import { ReactComponent as NextButtonAsset } from "assets/next-button.svg";
+import NextButtonAsset from "assets/next-button.svg?react";
 
 export default function NextButton(props: {
 	motion?: MotionProps;

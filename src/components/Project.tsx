@@ -2,7 +2,12 @@ import { css, cx } from "@linaria/core";
 import { Link } from "react-router-dom";
 import { useThemeStore } from "@/stores/theme-store";
 import Spacer from "./generic/Spacer";
-import { ReactComponent as BookIcon } from "assets/book.svg";
+import BookIcon from "assets/book.svg?react";
+import { useState } from "react";
+import { Variant, Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { darkTheme, lightTheme } from "@/utils/constants";
+import { lumenColor } from "@/utils/utils";
 
 export default function Project(props: {
 	name: string;
@@ -12,26 +17,69 @@ export default function Project(props: {
 	link: string;
 }) {
 	const { theme } = useThemeStore();
+	const [hovered, setHovered] = useState(false);
+
+	const divVariants: Variants = {
+		hovered: {
+			background: lumenColor(theme.background, 20),
+			border: "8px solid #3c3e3d",
+		},
+		notHovered: {
+			background: theme.background,
+			border: "2px solid #303030",
+		},
+	};
+
+	const textVariants: Variants = {
+		hovered: {
+			color: theme.text,
+		},
+		notHovered: {
+			color: theme.text,
+		},
+	};
+
+	const variant = hovered ? "hovered" : "notHovered";
 
 	return (
-		<Link target="_blank" to={props.link}>
-			<div className={styles.container}>
+		<Link
+			onMouseEnter={() => setHovered(true)}
+			onMouseLeave={() => setHovered(false)}
+			to={props.link}
+			target="_blank"
+		>
+			<motion.div
+				transition={{ duration: 0.2, type: "tween" }}
+				className={styles.container}
+				variants={divVariants}
+				animate={variant}
+			>
 				<div className={styles.content}>
 					{/* Repository name */}
 					<div className={cx("flex", "align-items-center")}>
 						<BookIcon color1={theme.text} className={styles.bookIcon} />
 						<Spacer horizontal={15} />
-						<p style={{ color: theme.text }} className={styles.repoName}>
+						<motion.p
+							style={{ color: theme.text }}
+							className={styles.repoName}
+							variants={textVariants}
+							animate={variant}
+						>
 							{props.name}
-						</p>
+						</motion.p>
 					</div>
 
 					<Spacer vertical={12} />
 
 					{/* Repository description */}
-					<p style={{ color: theme.text }} className={styles.description}>
+					<motion.p
+						style={{ color: theme.text }}
+						className={styles.description}
+						variants={textVariants}
+						animate={variant}
+					>
 						{props.description}
-					</p>
+					</motion.p>
 
 					<Spacer grow />
 
@@ -42,12 +90,17 @@ export default function Project(props: {
 							style={{ backgroundColor: props.languageColor }}
 						/>
 						<Spacer horizontal={10} />
-						<p style={{ color: theme.text }} className={styles.languageName}>
+						<motion.p
+							style={{ color: theme.text }}
+							className={styles.languageName}
+							variants={textVariants}
+							animate={variant}
+						>
 							{props.language}
-						</p>
+						</motion.p>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</Link>
 	);
 }
@@ -62,7 +115,6 @@ const styles = {
 		width: 300px;
 		max-width: 300px;
 		border-radius: 10px;
-		border: 2px solid #303030;
 	`,
 	content: css`
 		display: flex;

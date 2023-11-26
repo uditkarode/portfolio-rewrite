@@ -8,7 +8,7 @@ import { animationContext } from "@/contexts/animation-context";
 import { useThemeStore } from "@/stores/theme-store";
 import { LayoutIds } from "@/utils/constants";
 import { fade, objectIf } from "@/utils/utils";
-import { ReactComponent as Shapes } from "assets/shapes.svg";
+import Shapes from "assets/shapes.svg?react";
 
 export default function Home() {
 	const { theme, toggleTheme, setRandomAccent } = useThemeStore();

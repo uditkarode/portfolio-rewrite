@@ -4,7 +4,7 @@ import { useThemeStore } from "@/stores/theme-store";
 import { LayoutIds } from "@/utils/constants";
 import ColoredLine from "./ColoredLine";
 import Spacer from "./generic/Spacer";
-import { ReactComponent as Shapes } from "assets/shapes.svg";
+import Shapes from "assets/shapes.svg?react";
 
 export default function Header(props: { text: [string, string] }) {
 	const { theme, toggleTheme, setRandomAccent } = useThemeStore();
