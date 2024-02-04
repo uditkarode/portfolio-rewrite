@@ -7,8 +7,24 @@ spec:
   entryPoints:
     - web
   routes:
-  - match: Host(`udit.krd`)
-    kind: Rule
-    services:
-    - name: frontend
+    - match: Host(`udit.krd`) && PathPrefix(`/`)
+      kind: Rule
+      services:
+        - name: frontend
+          port: 80
+      middlewares:
+        - name: redirect-to-index
+---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: redirect-to-index
+  namespace: portfolio
+spec:
+  errors:
+    status:
+      - "404"
+    service:
+      name: frontend
       port: 80
+    query: "/"
