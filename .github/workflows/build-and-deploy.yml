@@ -37,7 +37,7 @@ jobs:
       - name: Get commit hash
         run: echo "SHA=$(git rev-parse HEAD)" >> $GITHUB_ENV
 
-      - name: Build frontend image with cache for arm64
+      - name: Build frontend image for arm64
         uses: docker/build-push-action@v3
         with:
           context: .

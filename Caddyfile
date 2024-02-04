@@ -1,5 +1,4 @@
 :80 {
     root * /var/www/portfolio
     file_server
-    http3
 }
