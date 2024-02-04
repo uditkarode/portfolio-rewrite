@@ -1,0 +1,6 @@
+:80 {
+    root * /var/www/portfolio
+    file_server
+    encode brotli gzip
+    http3
+}

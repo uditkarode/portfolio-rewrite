@@ -1,0 +1,60 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Tailscale
+        uses: tailscale/github-action@v2
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+
+      - name: Login to registry
+        uses: docker/login-action@v3
+        with:
+          registry: registry.udit.krd
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+
+      - name: Set up Kubeconfig
+        run: |
+          echo "${{ secrets.KUBECONFIG }}" > ./kubeconfig
+          echo "KUBECONFIG=$PWD/kubeconfig" >> $GITHUB_ENV
+
+      - name: Get commit hash
+        run: echo "SHA=$(git rev-parse HEAD)" >> $GITHUB_ENV
+
+      - name: Build frontend image with cache for arm64
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          tags: registry.udit.krd/portfolio/frontend:${{ env.SHA }}
+          push: false
+          platforms: linux/arm64
+          load: true
+
+      - name: Push frontend image
+        run: docker push registry.udit.krd/portfolio/frontend:${{ env.SHA }}
+
+      - name: Set new images to kustomization.yaml
+        run: |
+          cd k8s/overlays/prod
+          kustomize edit set image frontend='registry.udit.krd/portfolio/frontend:${{ env.SHA }}'
+
+      - name: Apply built kubernetes config
+        run: |
+          cd k8s/overlays/prod
+          kustomize build | kubectl apply -f -

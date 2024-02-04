@@ -1,0 +1,14 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: fe-route
+  namespace: portfolio
+spec:
+  entryPoints:
+    - web
+  routes:
+  - match: Host(`udit.krd`)
+    kind: Rule
+    services:
+    - name: frontend
+      port: 80
