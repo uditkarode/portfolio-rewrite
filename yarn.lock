@@ -1200,7 +1200,7 @@
     debug "^4.1.0"
     globals "^11.1.0"
 
-"@babel/traverse@^7.23.9":
+"@babel/traverse@^7.23.5", "@babel/traverse@^7.23.9":
   version "7.23.9"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.23.9.tgz#2f9d6aead6b564669394c5ce0f9302bb65b9d950"
   integrity sha512-I/4UJ9vs90OkBtY6iiiTORVMyIhJ4kAVmsKo9KFc8UOxMeUfi2hvtIBsET5u9GizXE6/GFSuKCTNfgCswuEjRg==
@@ -1242,7 +1242,7 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@babel/types@^7.23.6", "@babel/types@^7.23.9":
+"@babel/types@^7.23.5", "@babel/types@^7.23.6", "@babel/types@^7.23.9":
   version "7.23.9"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.23.9.tgz#1dd7b59a9a2b5c87f8b41e52770b5ecbf492e002"
   integrity sha512-dQjSq/7HaSjRM43FFGnv5keM2HsxpmyV1PfaSVm0nzzjwwTmjOe6J4bC8e3+pTEIgHaHj+1ZlLThRJ2auc/w1Q==
@@ -1517,22 +1517,21 @@
     find-up "^5.0.0"
     minimatch "^9.0.3"
 
-"@linaria/vite@^5.0.4":
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/@linaria/vite/-/vite-5.0.4.tgz#a16a10ba2b524e5ff83cbf41e90ff3fd84a80c53"
-  integrity sha512-T3gPaUvf4sfM2D74ZAehTWSE6mLZ/qhzWzwid1siKPOAW1F4m1mYjkdL7dPZGc97pg+JaFBnHXXIOfz5/5fwBQ==
-  dependencies:
-    "@linaria/babel-preset" "^5.0.4"
-    "@linaria/logger" "^5.0.0"
-    "@linaria/utils" "^5.0.2"
-    "@rollup/pluginutils" "^5.0.4"
-
 "@remix-run/router@1.15.0":
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/@remix-run/router/-/router-1.15.0.tgz#461a952c2872dd82c8b2e9b74c4dfaff569123e2"
   integrity sha512-HOil5aFtme37dVQTB6M34G95kPM3MMuqSmIRVCC52eKV+Y/tGSqw9P3rWhlAx6A+mz+MoX+XxsGsNJbaI5qCgQ==
 
-"@rollup/pluginutils@^5.0.4", "@rollup/pluginutils@^5.0.5":
+"@rollup/pluginutils@^5.0.4":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.1.0.tgz#7e53eddc8c7f483a4ad0b94afb1f7f5fd3c771e0"
+  integrity sha512-XTIWOPPcpvyKI6L1NHo0lFlCyznUEyPmPY1mc3KpPVDYulHSTvyeLNVW00QTLIAFNhR3kYnJTQHeGqU4M3n09g==
+  dependencies:
+    "@types/estree" "^1.0.0"
+    estree-walker "^2.0.2"
+    picomatch "^2.3.1"
+
+"@rollup/pluginutils@^5.0.5":
   version "5.0.5"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-5.0.5.tgz#bbb4c175e19ebfeeb8c132c2eea0ecb89941a66c"
   integrity sha512-6aEYR910NyP73oHiJglti74iRyOwgFU4x3meH/H8OJx6Ry0j6cOVZ5X/wTvub7G7Ao6qaHBEaNsV3GLJkSsF+Q==
@@ -1780,6 +1779,14 @@
     "@types/babel__core" "^7.20.5"
     react-refresh "^0.14.0"
 
+"@wyw-in-js/processor-utils@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@wyw-in-js/processor-utils/-/processor-utils-0.3.0.tgz#6badebe1c0872a4586a8b079fa16226fcd86c818"
+  integrity sha512-RBrWLN/voN1tW/Jv/H7HcZS+Kr5N40GMo15fRjO5nnl6a2qQpVmGYgVgP9nxG0/c1PzONW6U9VAN/j3NQrQDvQ==
+  dependencies:
+    "@babel/generator" "^7.23.5"
+    "@wyw-in-js/shared" "0.3.0"
+
 "@wyw-in-js/processor-utils@^0.2.2":
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@wyw-in-js/processor-utils/-/processor-utils-0.2.3.tgz#d689db596ffbf7a93028ad23b70150f45fe53810"
@@ -1796,6 +1803,45 @@
     debug "^4.3.4"
     find-up "^5.0.0"
     minimatch "^9.0.3"
+
+"@wyw-in-js/shared@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@wyw-in-js/shared/-/shared-0.3.0.tgz#2cff2918aa964a40bdcba3c0db666f00fe930f48"
+  integrity sha512-C0NwF8NeBi5n9M1b3aj+sC9T+IFAdIjVAMDB/cFwoVlVXKRcAr4TROZOyt4/xGyJJxkkO90NQERrCYKd2UBW5w==
+  dependencies:
+    debug "^4.3.4"
+    find-up "^5.0.0"
+    minimatch "^9.0.3"
+
+"@wyw-in-js/transform@0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@wyw-in-js/transform/-/transform-0.3.0.tgz#0b7953bf92e9978f1cf306a8bfe79ad1a988f1f9"
+  integrity sha512-2TXPMPexwEzHUEDgDF6qB1G9H7Vjc0jbo0FCUEzj4r0V+XKa95S82ahFgqJeDTG4ltr4ogcyZDmBd2c/jG/1Rw==
+  dependencies:
+    "@babel/core" "^7.23.5"
+    "@babel/generator" "^7.23.5"
+    "@babel/helper-module-imports" "^7.22.15"
+    "@babel/plugin-transform-modules-commonjs" "^7.23.3"
+    "@babel/template" "^7.22.15"
+    "@babel/traverse" "^7.23.5"
+    "@babel/types" "^7.23.5"
+    "@wyw-in-js/processor-utils" "0.3.0"
+    "@wyw-in-js/shared" "0.3.0"
+    babel-merge "^3.0.0"
+    cosmiconfig "^8.0.0"
+    happy-dom "^12.5.0"
+    source-map "^0.7.4"
+    stylis "^4.3.0"
+    ts-invariant "^0.10.3"
+
+"@wyw-in-js/vite@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@wyw-in-js/vite/-/vite-0.3.0.tgz#3b17a2daa9ea9f54aa2109901e8baa35166cd181"
+  integrity sha512-sKeSBNj9xm9pR68D4FGwwuP7I1fsH73sYPVAtk+Be10n6ORaXY5TafVhPiY2rB0b0FEfU8yaiJioM9WfbW5LRA==
+  dependencies:
+    "@rollup/pluginutils" "^5.0.4"
+    "@wyw-in-js/shared" "0.3.0"
+    "@wyw-in-js/transform" "0.3.0"
 
 ansi-styles@^3.2.1:
   version "3.2.1"
@@ -2092,6 +2138,18 @@ happy-dom@10.8.0:
   version "10.8.0"
   resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-10.8.0.tgz#b17a22f24b0b2523461f70dbd8663c9ca806f9fe"
   integrity sha512-ux5UfhNA9ANGf4keV7FCd9GqeQr3Bz1u9qnoPtTL0NcO1MEOeUXIUwNTB9r84Z7Q8/bsgkwi6K114zjYvnCmag==
+  dependencies:
+    css.escape "^1.5.1"
+    entities "^4.5.0"
+    iconv-lite "^0.6.3"
+    webidl-conversions "^7.0.0"
+    whatwg-encoding "^2.0.0"
+    whatwg-mimetype "^3.0.0"
+
+happy-dom@^12.5.0:
+  version "12.10.3"
+  resolved "https://registry.yarnpkg.com/happy-dom/-/happy-dom-12.10.3.tgz#e61985eff163b822c110458be7f81aa4f94ad588"
+  integrity sha512-JzUXOh0wdNGY54oKng5hliuBkq/+aT1V3YpTM+lrN/GoLQTANZsMaIvmHiHe612rauHvPJnDZkZ+5GZR++1Abg==
   dependencies:
     css.escape "^1.5.1"
     entities "^4.5.0"
@@ -2508,7 +2566,7 @@ source-map@^0.5.0:
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
   integrity sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ==
 
-source-map@^0.7.3:
+source-map@^0.7.3, source-map@^0.7.4:
   version "0.7.4"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.7.4.tgz#a9bbe705c9d8846f4e08ff6765acf0f1b0898656"
   integrity sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==
@@ -2517,6 +2575,11 @@ stylis@^3.5.4:
   version "3.5.4"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-3.5.4.tgz#f665f25f5e299cf3d64654ab949a57c768b73fbe"
   integrity sha512-8/3pSmthWM7lsPBKv7NXkzn2Uc9W7NotcwGNpJaa3k7WMM1XDCA4MgT5k/8BIexd5ydZdboXtU90XH9Ec4Bv/Q==
+
+stylis@^4.3.0:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.3.1.tgz#ed8a9ebf9f76fe1e12d462f5cc3c4c980b23a7eb"
+  integrity sha512-EQepAV+wMsIaGVGX1RECzgrcqRRU/0sYOHkeLsZ3fzHaHXZy4DaOOX0vOlGQdlsjkh3mFHAIlVimpwAs4dslyQ==
 
 supports-color@^5.3.0:
   version "5.5.0"

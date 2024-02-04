@@ -1,4 +1,4 @@
-import linaria from "@linaria/vite";
+import wyw from '@wyw-in-js/vite';
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import svgr from "vite-plugin-svgr";
@@ -16,7 +16,7 @@ export default defineConfig({
 				},
 			},
 		}),
-		linaria({
+		wyw({
 			include: ["**/*.{ts,tsx}"],
 			babelOptions: {
 				presets: ["@babel/preset-typescript", "@babel/preset-react"],
