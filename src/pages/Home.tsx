@@ -15,7 +15,7 @@ export default function Home() {
 	const [disableAnimations, setDisableAnimations] =
 		useContext(animationContext);
 
-	const initialDelay = 0.2;
+	const initialDelay = 0.4;
 
 	const timings = {
 		line: { duration: 0.3, delay: initialDelay, type: "spring" },
