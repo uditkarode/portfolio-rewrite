@@ -7,7 +7,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`uditkaro.de`) || Host(`udit.krd`) && PathPrefix(`/`)
+    - match: (Host(`uditkaro.de`) || Host(`udit.krd`) || Host(`xn--dckf2goh.com`)) && PathPrefix(`/`)
       kind: Rule
       services:
         - name: frontend
