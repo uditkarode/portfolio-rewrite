@@ -21,7 +21,7 @@ export default function Home() {
 		line: { duration: 0.3, delay: initialDelay, type: "spring" },
 		shapes: { duration: 1, delay: initialDelay + 0.678, type: "spring" },
 		text: { duration: 1, delay: initialDelay + 0.7, type: "spring" },
-		button: { delay: initialDelay + 1.7, type: "spring" },
+		button: { delay: initialDelay + 1.6, type: "tween" },
 	} as const satisfies Record<string, Transition>;
 
 	return (
@@ -75,9 +75,6 @@ export default function Home() {
 						layoutId={LayoutIds.Title2}
 						layout="position"
 						onClick={setRandomAccent}
-						onAnimationComplete={() => {
-							setDisableAnimations(true);
-						}}
 					>
 						Udit Karode
 					</motion.p>
@@ -87,7 +84,12 @@ export default function Home() {
 					{/* Next Button */}
 					<NextButton
 						buttonLink="/about"
-						motion={fade(timings["button"], disableAnimations)}
+						motion={{
+							...fade(timings["button"], disableAnimations),
+							onAnimationComplete: () => {
+								setDisableAnimations(true);
+							},
+						}}
 					/>
 				</div>
 			</div>
