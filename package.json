@@ -10,27 +10,27 @@
 	},
 	"dependencies": {
 		"@linaria/babel-preset": "^5.0.4",
-		"@linaria/core": "^6.3.0",
-		"@linaria/react": "^6.3.0",
-		"@wyw-in-js/vite": "^0.8.1",
-		"framer-motion": "^12.24.12",
+		"@linaria/core": "^7.0.0",
+		"@linaria/react": "^7.0.1",
+		"@wyw-in-js/vite": "^1.0.7",
+		"framer-motion": "^12.38.0",
 		"interactive": "^0.1.9",
-		"react": "^19.2.3",
-		"react-dom": "^19.2.3",
-		"react-router-dom": "^6.30.3",
-		"zustand": "^5.0.9"
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"react-router-dom": "^7.13.2",
+		"zustand": "^5.0.12"
 	},
 	"devDependencies": {
 		"@babel/preset-react": "^7.28.5",
 		"@babel/preset-typescript": "^7.28.5",
 		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
-		"@types/react": "^19.2.7",
+		"@types/react": "^19.2.14",
 		"@types/react-dom": "^19.2.3",
-		"@vitejs/plugin-react": "^5.1.2",
-		"prettier": "^3.7.4",
-		"typescript": "^5.9.3",
-		"vite": "^7.3.1",
-		"vite-plugin-svgr": "^4.5.0",
-		"vite-tsconfig-paths": "^6.0.3"
+		"@vitejs/plugin-react": "^5.2.0",
+		"prettier": "^3.8.1",
+		"typescript": "^6.0.2",
+		"vite": "^8.0.3",
+		"vite-plugin-svgr": "^5.0.0",
+		"vite-tsconfig-paths": "^6.1.1"
 	}
 }
